@@ -112,6 +112,7 @@ header p {
   font-size: 0.9rem;
   box-shadow: 0 10px 30px rgba(30, 108, 255, 0.3);
   transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  display: inline-block;
 }
 
 .btn:hover {
@@ -157,6 +158,9 @@ h2::after {
   border: 1px solid var(--glass-border);
   backdrop-filter: blur(5px);
   transition: all 0.4s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .card:hover {
@@ -174,6 +178,26 @@ h2::after {
 .card p {
   color: var(--muted);
   font-size: 1rem;
+}
+
+.card ul {
+  list-style: none;
+  margin: 25px 0;
+}
+
+.card ul li {
+  color: var(--text);
+  font-size: 0.9rem;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.card ul li::before {
+  content: '✓';
+  color: var(--blue);
+  font-weight: bold;
 }
 
 /* GRIDS ESPECÍFICOS */
@@ -210,6 +234,7 @@ footer {
   section { padding: 60px 5%; }
   header h1 { font-size: 3rem; }
   nav { padding: 15px 5%; }
+  .contact-container a { font-size: 1.2rem; }
 }
 </style>
 </head>
@@ -218,7 +243,7 @@ footer {
 
 <nav>
   <a href="#" class="logo-mini">GWS</a>
-  <a href="#contato" class="btn" style="margin-top:0; padding: 10px 20px; font-size: 0.7rem;">Orçamento</a>
+  <a href="#planos" class="btn" style="margin-top:0; padding: 10px 20px; font-size: 0.7rem;">Orçamento</a>
 </nav>
 
 <header>
@@ -250,7 +275,7 @@ footer {
   </p>
 </section>
 
-<section>
+<section id="habilidades">
   <h2>Habilidades</h2>
   <div class="grid skills">
     <div class="card">
@@ -265,6 +290,55 @@ footer {
       <h3>UI/UX Design</h3>
       <p>Prototipagem de alta fidelidade focada na jornada e conversão do usuário.</p>
     </div>
+  </div>
+</section>
+
+<section id="planos">
+  <h2>Planos e Investimento</h2>
+  <div class="grid projects">
+    
+    <div class="card">
+      <div>
+        <h3>Landing Page</h3>
+        <p>Alta conversão para o seu produto.</p>
+        <ul>
+          <li>Seção única estratégica</li>
+          <li>Design Responsivo</li>
+          <li>Otimização SEO</li>
+          <li>Integração WhatsApp</li>
+        </ul>
+      </div>
+      <a href="https://wa.me/5515996228860?text=Olá!%20Gostaria%20de%20um%20orçamento:%0A%0A----------------------------%0A*PLANURA:*%20LANDING%20PAGE%0A*SOLICITANTE:*%20Via%20Website%0A----------------------------" class="btn" style="text-align: center;">Solicitar Agora</a>
+    </div>
+
+    <div class="card" style="border-color: var(--blue);">
+      <div>
+        <h3>Institucional</h3>
+        <p>Presença digital profissional completa.</p>
+        <ul>
+          <li>Até 5 páginas personalizadas</li>
+          <li>Painel Administrativo</li>
+          <li>Blog / Notícias</li>
+          <li>Certificado SSL</li>
+        </ul>
+      </div>
+      <a href="https://wa.me/5515996228860?text=Olá!%20Gostaria%20de%20um%20orçamento:%0A%0A----------------------------%0A*PLANURA:*%20INSTITUCIONAL%0A*SOLICITANTE:*%20Via%20Website%0A----------------------------" class="btn" style="text-align: center;">Solicitar Agora</a>
+    </div>
+
+    <div class="card">
+      <div>
+        <h3>E-commerce</h3>
+        <p>Venda seus produtos em todo o mundo.</p>
+        <ul>
+          <li>Loja Virtual Completa</li>
+          <li>Checkout Seguro</li>
+          <li>Gestão de Estoque</li>
+          <li>Treinamento de uso</li>
+        </ul>
+      </div>
+      <a href="https://wa.me/5515996228860?text=Olá!%20Gostaria%20de%20um%20orçamento:%0A%0A----------------------------%0A*PLANURA:*%20E-COMMERCE%0A*SOLICITANTE:*%20Via%20Website%0A----------------------------" class="btn" style="text-align: center;">Solicitar Agora</a>
+    </div>
+
   </div>
 </section>
 
