@@ -7,10 +7,11 @@
 
 <style>
 :root{
-  --primary:#00b4ff;
-  --secondary:#0a0f1f;
-  --bg:#050814;
-  --text:#eaeaea;
+  --blue:#00b4ff;
+  --blue2:#1e6cff;
+  --dark:#050814;
+  --card:#0b1226;
+  --text:#e8ecf1;
   --muted:#9aa4b2;
 }
 
@@ -18,131 +19,119 @@
   margin:0;
   padding:0;
   box-sizing:border-box;
-  font-family:Segoe UI, Arial, sans-serif;
+  font-family:Segoe UI, system-ui, sans-serif;
 }
 
 body{
-  background:linear-gradient(180deg,#050814,#02040a);
+  background:
+    radial-gradient(circle at top, #0b1a3a, transparent 60%),
+    linear-gradient(180deg,#050814,#02040a);
   color:var(--text);
+  overflow-x:hidden;
 }
 
 /* ===== HEADER ===== */
 header{
-  height:100vh;
+  min-height:100vh;
   display:flex;
   flex-direction:column;
-  justify-content:center;
   align-items:center;
+  justify-content:center;
   text-align:center;
-  padding:40px;
+  padding:60px 20px;
 }
 
-/* LOGO */
+/* LOGO SVG */
 .logo{
-  width:180px;
-  margin-bottom:25px;
-  filter:drop-shadow(0 0 25px rgba(0,180,255,.4));
+  width:220px;
+  margin-bottom:30px;
+  filter:drop-shadow(0 0 35px rgba(0,180,255,.45));
 }
 
 header h1{
-  font-size:3.5rem;
-  letter-spacing:4px;
-  color:var(--primary);
+  font-size:3.8rem;
+  letter-spacing:6px;
+  margin-bottom:15px;
 }
 
 header p{
-  max-width:600px;
-  margin:20px auto;
-  color:var(--muted);
+  max-width:650px;
   font-size:1.1rem;
+  color:var(--muted);
 }
 
-header a{
-  margin-top:30px;
-  padding:14px 32px;
-  background:var(--primary);
+.btn{
+  margin-top:35px;
+  padding:15px 40px;
+  border-radius:40px;
+  background:linear-gradient(90deg,var(--blue),var(--blue2));
   color:#000;
   text-decoration:none;
-  border-radius:30px;
-  font-weight:bold;
+  font-weight:700;
   transition:.3s;
 }
 
-header a:hover{
-  transform:scale(1.05);
+.btn:hover{
+  transform:scale(1.06);
 }
 
 /* ===== SECTIONS ===== */
 section{
-  padding:80px 10%;
+  padding:90px 10%;
 }
 
 section h2{
-  font-size:2.5rem;
-  margin-bottom:20px;
-  color:var(--primary);
+  font-size:2.6rem;
+  margin-bottom:30px;
+  color:var(--blue);
 }
 
 /* ABOUT */
+.about{
+  max-width:900px;
+}
+
 .about p{
-  max-width:800px;
-  line-height:1.7;
+  line-height:1.8;
   color:var(--muted);
+}
+
+/* GRID BASE */
+.grid{
+  display:grid;
+  gap:25px;
 }
 
 /* SKILLS */
 .skills{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-  gap:20px;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
 }
 
-.skill{
-  background:var(--secondary);
-  padding:25px;
-  border-radius:16px;
+.card{
+  background:var(--card);
+  padding:30px;
+  border-radius:20px;
+  border:1px solid rgba(255,255,255,.05);
   transition:.3s;
 }
 
-.skill:hover{
-  transform:translateY(-6px);
+.card:hover{
+  transform:translateY(-8px);
 }
 
-.skill h3{
+.card h3{
+  color:var(--blue);
   margin-bottom:10px;
-  color:var(--primary);
 }
 
 /* PROJECTS */
 .projects{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-  gap:25px;
-}
-
-.project{
-  background:var(--secondary);
-  padding:25px;
-  border-radius:18px;
-}
-
-.project p{
-  color:var(--muted);
-  font-size:.95rem;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
 }
 
 /* SERVICES */
 .services{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-  gap:20px;
-}
-
-.service{
-  border:1px solid #1a2340;
-  padding:30px;
-  border-radius:20px;
-  background:rgba(0,180,255,.05);
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
 }
 
 /* CONTACT */
@@ -150,21 +139,16 @@ section h2{
   text-align:center;
 }
 
-.contact p{
-  margin-bottom:20px;
-  color:var(--muted);
-}
-
 .contact a{
-  color:var(--primary);
+  color:var(--blue);
+  font-weight:700;
   text-decoration:none;
-  font-weight:bold;
 }
 
 /* FOOTER */
 footer{
   text-align:center;
-  padding:30px;
+  padding:40px;
   color:#666;
   font-size:.9rem;
 }
@@ -174,39 +158,92 @@ footer{
 <body>
 
 <header>
-  <!-- LOGO -->
-  <img src="logo.png" alt="GWS Logo" class="logo">
 
-  <h1>GWS</h1>
-  <p>Gabriel Web Site — desenvolvimento web moderno, design limpo e código bem feito.</p>
-  <a href="#contato">Entrar em contato</a>
+<!-- LOGO SVG EMBUTIDA (SEM IMAGEM EXTERNA) -->
+<svg class="logo" viewBox="0 0 600 200" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="g1" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#00e5ff"/>
+      <stop offset="100%" stop-color="#1e6cff"/>
+    </linearGradient>
+  </defs>
+
+  <!-- swoosh -->
+  <path d="M40 140 C160 40, 380 40, 540 80"
+        fill="none"
+        stroke="url(#g1)"
+        stroke-width="14"
+        stroke-linecap="round"/>
+
+  <!-- letters -->
+  <text x="50" y="130"
+        font-size="110"
+        font-weight="900"
+        fill="url(#g1)">G</text>
+
+  <text x="190" y="130"
+        font-size="110"
+        font-weight="900"
+        fill="#0b0f1f">WS</text>
+
+  <!-- star -->
+  <polygon points="520,45 526,60 542,66 526,72 520,88 514,72 498,66 514,60"
+           fill="#7fd7ff"/>
+</svg>
+
+<h1>GWS</h1>
+<p>Gabriel Web Site — desenvolvimento web moderno, design premium e código limpo.</p>
+
+<a class="btn" href="#contato">Entrar em contato</a>
 </header>
 
 <section class="about">
   <h2>Sobre</h2>
   <p>
-    Sou Gabriel, desenvolvedor web focado em criar sites rápidos, modernos e funcionais.
-    Cada projeto é feito com atenção ao design, performance e experiência do usuário.
+    Sou Gabriel, desenvolvedor web focado em criar experiências digitais modernas,
+    rápidas e bem estruturadas. Meu trabalho une design, performance e organização.
+    Nada genérico, nada improvisado.
   </p>
 </section>
 
 <section>
   <h2>Habilidades</h2>
-  <div class="skills">
-    <div class="skill"><h3>HTML5</h3><p>Estrutura semântica e organizada.</p></div>
-    <div class="skill"><h3>CSS3</h3><p>Design moderno e responsivo.</p></div>
-    <div class="skill"><h3>JavaScript</h3><p>Interatividade e lógica.</p></div>
-    <div class="skill"><h3>UI/UX</h3><p>Experiência focada no usuário.</p></div>
+  <div class="grid skills">
+    <div class="card"><h3>HTML5</h3><p>Estrutura semântica e escalável.</p></div>
+    <div class="card"><h3>CSS3</h3><p>Layouts premium e responsivos.</p></div>
+    <div class="card"><h3>JavaScript</h3><p>Interatividade e lógica avançada.</p></div>
+    <div class="card"><h3>UI / UX</h3><p>Design focado no usuário.</p></div>
+    <div class="card"><h3>Performance</h3><p>Sites rápidos e otimizados.</p></div>
+  </div>
+</section>
+
+<section>
+  <h2>Projetos</h2>
+  <div class="grid projects">
+    <div class="card"><h3>Portfólio One Page</h3><p>Apresentação profissional.</p></div>
+    <div class="card"><h3>Landing Pages</h3><p>Alta conversão.</p></div>
+    <div class="card"><h3>Sistemas Web</h3><p>Painéis e dashboards.</p></div>
+  </div>
+</section>
+
+<section>
+  <h2>Serviços</h2>
+  <div class="grid services">
+    <div class="card">Criação de sites</div>
+    <div class="card">Landing pages</div>
+    <div class="card">Redesign</div>
+    <div class="card">UI/UX</div>
+    <div class="card">Otimização</div>
   </div>
 </section>
 
 <section id="contato" class="contact">
   <h2>Contato</h2>
-  <p>Email: <a href="mailto:contato@gws.dev">contato@gws.dev</a></p>
+  <p>Email: <a href="mailto:gabriel@gws.dev">gabriel@gws.dev</a></p>
 </section>
 
 <footer>
-  © 2025 — GWS | Gabriel Web Site
+© 2025 — GWS | Gabriel Web Site
 </footer>
 
 </body>
