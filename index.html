@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GWS — Gabriel Web Site</title>
+
+<style>
+:root{
+  --primary:#00b4ff;
+  --secondary:#0a0f1f;
+  --bg:#050814;
+  --text:#eaeaea;
+  --muted:#9aa4b2;
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Segoe UI, Arial, sans-serif;
+}
+
+body{
+  background:linear-gradient(180deg,#050814,#02040a);
+  color:var(--text);
+}
+
+/* ===== HEADER ===== */
+header{
+  height:100vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  padding:40px;
+}
+
+/* LOGO */
+.logo{
+  width:180px;
+  margin-bottom:25px;
+  filter:drop-shadow(0 0 25px rgba(0,180,255,.4));
+}
+
+header h1{
+  font-size:3.5rem;
+  letter-spacing:4px;
+  color:var(--primary);
+}
+
+header p{
+  max-width:600px;
+  margin:20px auto;
+  color:var(--muted);
+  font-size:1.1rem;
+}
+
+header a{
+  margin-top:30px;
+  padding:14px 32px;
+  background:var(--primary);
+  color:#000;
+  text-decoration:none;
+  border-radius:30px;
+  font-weight:bold;
+  transition:.3s;
+}
+
+header a:hover{
+  transform:scale(1.05);
+}
+
+/* ===== SECTIONS ===== */
+section{
+  padding:80px 10%;
+}
+
+section h2{
+  font-size:2.5rem;
+  margin-bottom:20px;
+  color:var(--primary);
+}
+
+/* ABOUT */
+.about p{
+  max-width:800px;
+  line-height:1.7;
+  color:var(--muted);
+}
+
+/* SKILLS */
+.skills{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+  gap:20px;
+}
+
+.skill{
+  background:var(--secondary);
+  padding:25px;
+  border-radius:16px;
+  transition:.3s;
+}
+
+.skill:hover{
+  transform:translateY(-6px);
+}
+
+.skill h3{
+  margin-bottom:10px;
+  color:var(--primary);
+}
+
+/* PROJECTS */
+.projects{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:25px;
+}
+
+.project{
+  background:var(--secondary);
+  padding:25px;
+  border-radius:18px;
+}
+
+.project p{
+  color:var(--muted);
+  font-size:.95rem;
+}
+
+/* SERVICES */
+.services{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:20px;
+}
+
+.service{
+  border:1px solid #1a2340;
+  padding:30px;
+  border-radius:20px;
+  background:rgba(0,180,255,.05);
+}
+
+/* CONTACT */
+.contact{
+  text-align:center;
+}
+
+.contact p{
+  margin-bottom:20px;
+  color:var(--muted);
+}
+
+.contact a{
+  color:var(--primary);
+  text-decoration:none;
+  font-weight:bold;
+}
+
+/* FOOTER */
+footer{
+  text-align:center;
+  padding:30px;
+  color:#666;
+  font-size:.9rem;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <!-- LOGO -->
+  <img src="logo.png" alt="GWS Logo" class="logo">
+
+  <h1>GWS</h1>
+  <p>Gabriel Web Site — desenvolvimento web moderno, design limpo e código bem feito.</p>
+  <a href="#contato">Entrar em contato</a>
+</header>
+
+<section class="about">
+  <h2>Sobre</h2>
+  <p>
+    Sou Gabriel, desenvolvedor web focado em criar sites rápidos, modernos e funcionais.
+    Cada projeto é feito com atenção ao design, performance e experiência do usuário.
+  </p>
+</section>
+
+<section>
+  <h2>Habilidades</h2>
+  <div class="skills">
+    <div class="skill"><h3>HTML5</h3><p>Estrutura semântica e organizada.</p></div>
+    <div class="skill"><h3>CSS3</h3><p>Design moderno e responsivo.</p></div>
+    <div class="skill"><h3>JavaScript</h3><p>Interatividade e lógica.</p></div>
+    <div class="skill"><h3>UI/UX</h3><p>Experiência focada no usuário.</p></div>
+  </div>
+</section>
+
+<section id="contato" class="contact">
+  <h2>Contato</h2>
+  <p>Email: <a href="mailto:contato@gws.dev">contato@gws.dev</a></p>
+</section>
+
+<footer>
+  © 2025 — GWS | Gabriel Web Site
+</footer>
+
+</body>
+</html>
