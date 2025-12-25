@@ -5,245 +5,279 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>GWS — Gabriel Web Site</title>
 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;900&display=swap" rel="stylesheet">
+
 <style>
-:root{
-  --blue:#00b4ff;
-  --blue2:#1e6cff;
-  --dark:#050814;
-  --card:#0b1226;
-  --text:#e8ecf1;
-  --muted:#9aa4b2;
+:root {
+  --blue: #00d4ff;
+  --blue-dark: #1e6cff;
+  --dark: #050814;
+  --card-bg: rgba(11, 18, 38, 0.7);
+  --text: #f0f4f8;
+  --muted: #9aa4b2;
+  --glass-border: rgba(255, 255, 255, 0.1);
 }
 
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  font-family:Segoe UI, system-ui, sans-serif;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  scroll-behavior: smooth;
 }
 
-body{
-  background:
-    radial-gradient(circle at top, #0b1a3a, transparent 60%),
-    linear-gradient(180deg,#050814,#02040a);
-  color:var(--text);
-  overflow-x:hidden;
+body {
+  background-color: var(--dark);
+  background-image: 
+    radial-gradient(circle at 50% -20%, #1e3a8a 0%, transparent 50%),
+    radial-gradient(circle at 100% 100%, #0c1a3a 0%, transparent 30%);
+  background-attachment: fixed;
+  color: var(--text);
+  line-height: 1.6;
+}
+
+/* ===== NAVBAR ===== */
+nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 20px 10%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1000;
+  backdrop-filter: blur(10px);
+  background: rgba(5, 8, 20, 0.8);
+  border-bottom: 1px solid var(--glass-border);
+}
+
+nav .logo-mini {
+  font-weight: 900;
+  font-size: 1.5rem;
+  background: linear-gradient(90deg, var(--blue), var(--blue-dark));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-decoration: none;
 }
 
 /* ===== HEADER ===== */
-header{
-  min-height:100vh;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
-  padding:60px 20px;
+header {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 100px 20px;
 }
 
-/* LOGO SVG */
-.logo{
-  width:220px;
-  margin-bottom:30px;
-  filter:drop-shadow(0 0 35px rgba(0,180,255,.45));
+.logo-main {
+  width: 280px;
+  filter: drop-shadow(0 0 40px rgba(0, 212, 255, 0.3));
+  margin-bottom: 40px;
+  animation: float 6s ease-in-out infinite;
 }
 
-header h1{
-  font-size:3.8rem;
-  letter-spacing:6px;
-  margin-bottom:15px;
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
 }
 
-header p{
-  max-width:650px;
-  font-size:1.1rem;
-  color:var(--muted);
+header h1 {
+  font-size: clamp(2.5rem, 8vw, 4.5rem);
+  font-weight: 900;
+  letter-spacing: -1px;
+  margin-bottom: 20px;
 }
 
-.btn{
-  margin-top:35px;
-  padding:15px 40px;
-  border-radius:40px;
-  background:linear-gradient(90deg,var(--blue),var(--blue2));
-  color:#000;
-  text-decoration:none;
-  font-weight:700;
-  transition:.3s;
+header p {
+  max-width: 600px;
+  font-size: 1.2rem;
+  color: var(--muted);
+  font-weight: 300;
 }
 
-.btn:hover{
-  transform:scale(1.06);
+.btn {
+  margin-top: 40px;
+  padding: 18px 45px;
+  border-radius: 50px;
+  background: linear-gradient(135deg, var(--blue), var(--blue-dark));
+  color: #fff;
+  text-decoration: none;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 0.9rem;
+  box-shadow: 0 10px 30px rgba(30, 108, 255, 0.3);
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.btn:hover {
+  transform: scale(1.05) translateY(-3px);
+  box-shadow: 0 15px 40px rgba(30, 108, 255, 0.5);
 }
 
 /* ===== SECTIONS ===== */
-section{
-  padding:90px 10%;
+section {
+  padding: 100px 10%;
+  max-width: 1300px;
+  margin: 0 auto;
 }
 
-section h2{
-  font-size:2.6rem;
-  margin-bottom:30px;
-  color:var(--blue);
+h2 {
+  font-size: 2.5rem;
+  margin-bottom: 50px;
+  position: relative;
+  display: inline-block;
 }
 
-/* ABOUT */
-.about{
-  max-width:900px;
+h2::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  width: 50px;
+  height: 4px;
+  background: var(--blue);
+  border-radius: 2px;
 }
 
-.about p{
-  line-height:1.8;
-  color:var(--muted);
+/* CARDS REFINADOS */
+.grid {
+  display: grid;
+  gap: 30px;
 }
 
-/* GRID BASE */
-.grid{
-  display:grid;
-  gap:25px;
+.card {
+  background: var(--card-bg);
+  padding: 40px;
+  border-radius: 24px;
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(5px);
+  transition: all 0.4s ease;
 }
 
-/* SKILLS */
-.skills{
-  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+.card:hover {
+  background: rgba(255, 255, 255, 0.03);
+  border-color: var(--blue);
+  transform: translateY(-10px);
 }
 
-.card{
-  background:var(--card);
-  padding:30px;
-  border-radius:20px;
-  border:1px solid rgba(255,255,255,.05);
-  transition:.3s;
+.card h3 {
+  color: var(--blue);
+  margin-bottom: 15px;
+  font-size: 1.4rem;
 }
 
-.card:hover{
-  transform:translateY(-8px);
+.card p {
+  color: var(--muted);
+  font-size: 1rem;
 }
 
-.card h3{
-  color:var(--blue);
-  margin-bottom:10px;
+/* GRIDS ESPECÍFICOS */
+.skills { grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); }
+.projects { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
+
+/* CONTATO */
+.contact-container {
+  background: linear-gradient(135deg, rgba(30, 108, 255, 0.1), transparent);
+  padding: 60px;
+  border-radius: 30px;
+  text-align: center;
+  border: 1px solid var(--glass-border);
 }
 
-/* PROJECTS */
-.projects{
-  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+.contact-container a {
+  color: var(--blue);
+  font-size: 2rem;
+  text-decoration: none;
+  font-weight: 700;
+  word-break: break-all;
 }
 
-/* SERVICES */
-.services{
-  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+footer {
+  text-align: center;
+  padding: 60px;
+  color: var(--muted);
+  font-size: 0.9rem;
+  border-top: 1px solid var(--glass-border);
 }
 
-/* CONTACT */
-.contact{
-  text-align:center;
-}
-
-.contact a{
-  color:var(--blue);
-  font-weight:700;
-  text-decoration:none;
-}
-
-/* FOOTER */
-footer{
-  text-align:center;
-  padding:40px;
-  color:#666;
-  font-size:.9rem;
+/* RESPONSIVIDADE */
+@media (max-width: 768px) {
+  section { padding: 60px 5%; }
+  header h1 { font-size: 3rem; }
+  nav { padding: 15px 5%; }
 }
 </style>
 </head>
 
 <body>
 
+<nav>
+  <a href="#" class="logo-mini">GWS</a>
+  <a href="#contato" class="btn" style="margin-top:0; padding: 10px 20px; font-size: 0.7rem;">Orçamento</a>
+</nav>
+
 <header>
+  <svg class="logo-main" viewBox="0 0 600 200" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <linearGradient id="g1" x1="0%" y1="0%" x2="100%" y2="0%">
+        <stop offset="0%" stop-color="#00d4ff"/>
+        <stop offset="100%" stop-color="#1e6cff"/>
+      </linearGradient>
+    </defs>
+    <path d="M40 140 C160 40, 380 40, 540 80" fill="none" stroke="url(#g1)" stroke-width="12" stroke-linecap="round" opacity="0.8"/>
+    <text x="50" y="130" font-size="110" font-weight="900" fill="url(#g1)">G</text>
+    <text x="190" y="130" font-size="110" font-weight="900" fill="#fff" opacity="0.9">WS</text>
+    <circle cx="520" cy="66" r="8" fill="#00d4ff">
+        <animate attributeName="opacity" values="1;0.3;1" dur="2s" repeatCount="indefinite" />
+    </circle>
+  </svg>
 
-<!-- LOGO SVG EMBUTIDA (SEM IMAGEM EXTERNA) -->
-<svg class="logo" viewBox="0 0 600 200" xmlns="http://www.w3.org/2000/svg">
-  <defs>
-    <linearGradient id="g1" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#00e5ff"/>
-      <stop offset="100%" stop-color="#1e6cff"/>
-    </linearGradient>
-  </defs>
-
-  <!-- swoosh -->
-  <path d="M40 140 C160 40, 380 40, 540 80"
-        fill="none"
-        stroke="url(#g1)"
-        stroke-width="14"
-        stroke-linecap="round"/>
-
-  <!-- letters -->
-  <text x="50" y="130"
-        font-size="110"
-        font-weight="900"
-        fill="url(#g1)">G</text>
-
-  <text x="190" y="130"
-        font-size="110"
-        font-weight="900"
-        fill="#0b0f1f">WS</text>
-
-  <!-- star -->
-  <polygon points="520,45 526,60 542,66 526,72 520,88 514,72 498,66 514,60"
-           fill="#7fd7ff"/>
-</svg>
-
-<h1>GWS</h1>
-<p>Gabriel Web Site — desenvolvimento web moderno, design premium e código limpo.</p>
-
-<a class="btn" href="#contato">Entrar em contato</a>
+  <h1>Digital Experience</h1>
+  <p>Gabriel Web Site — Transformando conceitos em interfaces de alta performance e design impecável.</p>
+  
+  <a class="btn" href="#sobre">Explorar Projetos</a>
 </header>
 
-<section class="about">
+<section id="sobre">
   <h2>Sobre</h2>
-  <p>
-    Sou Gabriel, desenvolvedor web focado em criar experiências digitais modernas,
-    rápidas e bem estruturadas. Meu trabalho une design, performance e organização.
-    Nada genérico, nada improvisado.
+  <p style="font-size: 1.4rem; max-width: 800px; font-weight: 300;">
+    Especialista em criar ecossistemas digitais onde o <strong>design</strong> e a <strong>tecnologia</strong> se fundem. Meu foco é eliminar o ruído e entregar apenas o que há de mais refinado no desenvolvimento moderno.
   </p>
 </section>
 
 <section>
   <h2>Habilidades</h2>
   <div class="grid skills">
-    <div class="card"><h3>HTML5</h3><p>Estrutura semântica e escalável.</p></div>
-    <div class="card"><h3>CSS3</h3><p>Layouts premium e responsivos.</p></div>
-    <div class="card"><h3>JavaScript</h3><p>Interatividade e lógica avançada.</p></div>
-    <div class="card"><h3>UI / UX</h3><p>Design focado no usuário.</p></div>
-    <div class="card"><h3>Performance</h3><p>Sites rápidos e otimizados.</p></div>
+    <div class="card">
+      <h3>Frontend</h3>
+      <p>Interfaces reativas com foco em UX, utilizando as melhores práticas de HTML5 e CSS moderno.</p>
+    </div>
+    <div class="card">
+      <h3>Performance</h3>
+      <p>Otimização de carregamento crítica e Core Web Vitals para máxima velocidade.</p>
+    </div>
+    <div class="card">
+      <h3>UI/UX Design</h3>
+      <p>Prototipagem de alta fidelidade focada na jornada e conversão do usuário.</p>
+    </div>
   </div>
 </section>
 
-<section>
-  <h2>Projetos</h2>
-  <div class="grid projects">
-    <div class="card"><h3>Portfólio One Page</h3><p>Apresentação profissional.</p></div>
-    <div class="card"><h3>Landing Pages</h3><p>Alta conversão.</p></div>
-    <div class="card"><h3>Sistemas Web</h3><p>Painéis e dashboards.</p></div>
+<section id="contato">
+  <div class="contact-container">
+    <h2>Vamos conversar?</h2>
+    <p style="margin-bottom: 30px; color: var(--muted);">Disponível para novos projetos e consultorias.</p>
+    <a href="mailto:gabriel@gws.dev">gabriel@gws.dev</a>
   </div>
-</section>
-
-<section>
-  <h2>Serviços</h2>
-  <div class="grid services">
-    <div class="card">Criação de sites</div>
-    <div class="card">Landing pages</div>
-    <div class="card">Redesign</div>
-    <div class="card">UI/UX</div>
-    <div class="card">Otimização</div>
-  </div>
-</section>
-
-<section id="contato" class="contact">
-  <h2>Contato</h2>
-  <p>Email: <a href="mailto:gabriel@gws.dev">gabriel@gws.dev</a></p>
 </section>
 
 <footer>
-© 2025 — GWS | Gabriel Web Site
+  <p>© 2025 — GWS | Gabriel Web Site<br>Developed with Precision.</p>
 </footer>
 
 </body>
