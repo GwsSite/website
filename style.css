@@ -417,3 +417,150 @@ body {
         display: none;
     }
 }
+
+
+/* ===================== ABA DESENVOLVEDOR ===================== */
+#desenvolvedor {
+    max-width: 1100px;
+    margin: 60px auto;
+    padding: 60px 40px;
+    background: linear-gradient(145deg, #1a1a1a, #242424);
+    border-radius: 18px;
+    border: 1px solid #2a2a2a;
+    text-align: center;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.7);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+#desenvolvedor:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 45px rgba(0,0,0,0.8);
+}
+
+#desenvolvedor h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    font-weight: 900;
+    color: #ffffff;
+    text-shadow: 0 3px 8px rgba(0,0,0,0.6);
+}
+
+#desenvolvedor p {
+    font-size: 17px;
+    color: #cccccc;
+    margin-bottom: 50px;
+    line-height: 1.6;
+}
+
+/* CARDS */
+.dev-info {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 25px;
+    margin-bottom: 40px;
+}
+
+.dev-card {
+    flex: 1 1 300px;
+    background: linear-gradient(145deg, #1b1b1b, #262626);
+    padding: 30px 25px;
+    border-radius: 15px;
+    border: 1px solid #2a2a2a;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.5);
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+    text-align: left;
+}
+
+.dev-card:hover {
+    transform: translateY(-6px) scale(1.03);
+    border-color: #25d366;
+    box-shadow: 0 12px 35px rgba(0,0,0,0.7);
+}
+
+.dev-card h3 {
+    font-size: 22px;
+    color: #ffffff;
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+.dev-card p {
+    font-size: 15px;
+    color: #bbbbbb;
+    line-height: 1.6;
+}
+
+.dev-card ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.dev-card li {
+    margin-bottom: 10px;
+    font-size: 15px;
+    color: #bbbbbb;
+    position: relative;
+    padding-left: 20px;
+}
+
+.dev-card li::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: #25d366;
+}
+
+/* LINKS */
+.dev-card a {
+    color: #25d366;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.dev-card a:hover {
+    text-decoration: underline;
+}
+
+/* BOTÕES */
+.dev-btns {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    flex-wrap: wrap;
+}
+
+.btn-dev {
+    display: inline-block;
+    padding: 16px 50px;
+    font-size: 16px;
+    font-weight: 700;
+    color: #ffffff;
+    background: linear-gradient(135deg, #8e44ad, #9b59b6);
+    border-radius: 50px;
+    text-decoration: none;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.6);
+    transition: all 0.4s ease;
+}
+
+.btn-dev:hover {
+    transform: scale(1.12) translateY(-3px);
+    box-shadow: 0 12px 40px rgba(0,0,0,0.75);
+}
+
+/* RESPONSIVO */
+@media (max-width: 1024px) {
+    .dev-card { flex: 1 1 280px; }
+}
+
+@media (max-width: 768px) {
+    #desenvolvedor { padding: 45px 25px; }
+    .dev-info { flex-direction: column; align-items: center; }
+    .btn-dev { width: 100%; text-align: center; }
+}
+
+@media (max-width: 480px) {
+    #desenvolvedor h2 { font-size: 30px; }
+    #desenvolvedor p { font-size: 16px; }
+    .dev-card h3 { font-size: 20px; }
+}
