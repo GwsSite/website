@@ -180,59 +180,67 @@ button:hover {
 #planos {
     max-width: 1100px;
     margin: 60px auto;
-    padding: 30px;
+    padding: 40px 20px;
     background-color: #141414;
-    border-radius: 8px;
+    border-radius: 12px;
     border: 1px solid #1f1f1f;
 
-    display: flex; /* Flex horizontal */
-    justify-content: space-between; /* Espaçamento entre planos */
-    flex-wrap: wrap; /* Para quebrar linha em telas menores */
-    gap: 25px; /* Espaçamento uniforme */
+    display: flex; /* alinhamento horizontal */
+    justify-content: space-around; /* espaço uniforme entre cards */
+    flex-wrap: wrap; /* quebra em telas menores */
+    gap: 30px; /* espaçamento entre planos */
 }
 
 #planos h2 {
-    width: 100%; /* Ocupa toda a linha */
+    width: 100%; /* ocupa toda a linha */
     text-align: center;
-    font-size: 28px;
-    margin-bottom: 35px;
+    font-size: 32px;
+    margin-bottom: 40px;
     color: #ffffff;
+    text-shadow: 0 2px 6px rgba(0,0,0,0.6);
 }
 
+/* CARD DO PLANO */
 .plano {
-    background-color: #1b1b1b;
-    padding: 25px;
-    border-radius: 8px;
+    background: linear-gradient(145deg, #1b1b1b, #212121); /* gradiente leve */
+    padding: 30px 20px;
+    border-radius: 15px;
     border: 1px solid #2a2a2a;
     text-align: center;
-    transition: border-color 0.2s ease, transform 0.2s ease;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.5);
+    transition: all 0.3s ease;
 
-    flex: 1 1 250px; /* Largura mínima 250px, cresce se houver espaço */
-    min-width: 250px; /* Evita que fique muito pequeno */
+    flex: 1 1 260px; /* largura mínima 260px, cresce se houver espaço */
+    min-width: 260px;
+    max-width: 320px;
 }
 
 .plano:hover {
+    transform: translateY(-8px) scale(1.03);
     border-color: #25d366;
-    transform: translateY(-4px);
+    box-shadow: 0 12px 25px rgba(0,0,0,0.7);
 }
 
 .plano h3 {
-    font-size: 22px;
-    margin-bottom: 10px;
+    font-size: 24px;
+    margin-bottom: 15px;
     color: #ffffff;
+    font-weight: 700;
 }
 
 .plano p {
     font-size: 15px;
     color: #bbbbbb;
-    margin-bottom: 18px;
+    margin-bottom: 20px;
+    line-height: 1.6;
 }
 
 .plano strong {
     display: block;
-    font-size: 24px;
+    font-size: 26px;
     color: #25d366;
     font-weight: bold;
+    margin-bottom: 15px;
 }
 
 /* REMOVE BOLINHAS DE LISTA NOS PLANOS */
@@ -243,12 +251,24 @@ button:hover {
 }
 
 #planos li {
-    margin-bottom: 8px;
+    margin-bottom: 10px;
     color: #bbbbbb;
     font-size: 15px;
+    line-height: 1.5;
 }
 
 /* RESPONSIVO */
+@media (max-width: 1024px) {
+    #planos {
+        gap: 25px;
+        padding: 35px 15px;
+    }
+    .plano {
+        min-width: 240px;
+        max-width: 300px;
+    }
+}
+
 @media (max-width: 768px) {
     #planos {
         flex-direction: column;
@@ -256,7 +276,7 @@ button:hover {
     }
     .plano {
         width: 100%;
-        max-width: 400px; /* Ajuste máximo */
+        max-width: 400px;
     }
 }
 
