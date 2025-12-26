@@ -1,358 +1,345 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>GWS — Gabriel Web Site</title>
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;900&display=swap" rel="stylesheet">
-
-<style>
-:root {
-  --blue: #00d4ff;
-  --blue-dark: #1e6cff;
-  --dark: #050814;
-  --card-bg: rgba(11, 18, 38, 0.7);
-  --text: #f0f4f8;
-  --muted: #9aa4b2;
-  --glass-border: rgba(255, 255, 255, 0.1);
-}
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Inter', system-ui, -apple-system, sans-serif;
-  scroll-behavior: smooth;
-}
-
-body {
-  background-color: var(--dark);
-  background-image: 
-    radial-gradient(circle at 50% -20%, #1e3a8a 0%, transparent 50%),
-    radial-gradient(circle at 100% 100%, #0c1a3a 0%, transparent 30%);
-  background-attachment: fixed;
-  color: var(--text);
-  line-height: 1.6;
-}
-
-/* ===== NAVBAR ===== */
-nav {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  padding: 20px 10%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  z-index: 1000;
-  backdrop-filter: blur(10px);
-  background: rgba(5, 8, 20, 0.8);
-  border-bottom: 1px solid var(--glass-border);
-}
-
-nav .logo-mini {
-  font-weight: 900;
-  font-size: 1.5rem;
-  background: linear-gradient(90deg, var(--blue), var(--blue-dark));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  text-decoration: none;
-}
-
-/* ===== HEADER ===== */
-header {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 100px 20px;
-}
-
-.logo-main {
-  width: 280px;
-  filter: drop-shadow(0 0 40px rgba(0, 212, 255, 0.3));
-  margin-bottom: 40px;
-  animation: float 6s ease-in-out infinite;
-}
-
-@keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-20px); }
-}
-
-header h1 {
-  font-size: clamp(2.5rem, 8vw, 4.5rem);
-  font-weight: 900;
-  letter-spacing: -1px;
-  margin-bottom: 20px;
-}
-
-header p {
-  max-width: 600px;
-  font-size: 1.2rem;
-  color: var(--muted);
-  font-weight: 300;
-}
-
-.btn {
-  margin-top: 40px;
-  padding: 18px 45px;
-  border-radius: 50px;
-  background: linear-gradient(135deg, var(--blue), var(--blue-dark));
-  color: #fff;
-  text-decoration: none;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  font-size: 0.9rem;
-  box-shadow: 0 10px 30px rgba(30, 108, 255, 0.3);
-  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  display: inline-block;
-}
-
-.btn:hover {
-  transform: scale(1.05) translateY(-3px);
-  box-shadow: 0 15px 40px rgba(30, 108, 255, 0.5);
-}
-
-/* ===== SECTIONS ===== */
-section {
-  padding: 100px 10%;
-  max-width: 1300px;
-  margin: 0 auto;
-}
-
-h2 {
-  font-size: 2.5rem;
-  margin-bottom: 50px;
-  position: relative;
-  display: inline-block;
-}
-
-h2::after {
-  content: '';
-  position: absolute;
-  bottom: -10px;
-  left: 0;
-  width: 50px;
-  height: 4px;
-  background: var(--blue);
-  border-radius: 2px;
-}
-
-/* CARDS REFINADOS */
-.grid {
-  display: grid;
-  gap: 30px;
-}
-
-.card {
-  background: var(--card-bg);
-  padding: 40px;
-  border-radius: 24px;
-  border: 1px solid var(--glass-border);
-  backdrop-filter: blur(5px);
-  transition: all 0.4s ease;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-.card:hover {
-  background: rgba(255, 255, 255, 0.03);
-  border-color: var(--blue);
-  transform: translateY(-10px);
-}
-
-.card h3 {
-  color: var(--blue);
-  margin-bottom: 15px;
-  font-size: 1.4rem;
-}
-
-.card p {
-  color: var(--muted);
-  font-size: 1rem;
-}
-
-.card ul {
-  list-style: none;
-  margin: 25px 0;
-}
-
-.card ul li {
-  color: var(--text);
-  font-size: 0.9rem;
-  margin-bottom: 10px;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.card ul li::before {
-  content: '✓';
-  color: var(--blue);
-  font-weight: bold;
-}
-
-/* GRIDS ESPECÍFICOS */
-.skills { grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); }
-.projects { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
-
-/* CONTATO */
-.contact-container {
-  background: linear-gradient(135deg, rgba(30, 108, 255, 0.1), transparent);
-  padding: 60px;
-  border-radius: 30px;
-  text-align: center;
-  border: 1px solid var(--glass-border);
-}
-
-.contact-container a {
-  color: var(--blue);
-  font-size: 2rem;
-  text-decoration: none;
-  font-weight: 700;
-  word-break: break-all;
-}
-
-footer {
-  text-align: center;
-  padding: 60px;
-  color: var(--muted);
-  font-size: 0.9rem;
-  border-top: 1px solid var(--glass-border);
-}
-
-/* RESPONSIVIDADE */
-@media (max-width: 768px) {
-  section { padding: 60px 5%; }
-  header h1 { font-size: 3rem; }
-  nav { padding: 15px 5%; }
-  .contact-container a { font-size: 1.2rem; }
-}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portifólio | Vendas</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-<nav>
-  <a href="#" class="logo-mini">GWS</a>
-  <a href="#planos" class="btn" style="margin-top:0; padding: 10px 20px; font-size: 0.7rem;">Orçamento</a>
-</nav>
+    <!-- NAVBAR -->
+    <nav>
+        <a href="#inicio">Início</a> |
+        <a href="#sobre">Sobre</a> |
+        <a href="#planos">Planos</a> |
+        <a href="#contato">Contato</a>
+    </nav>
 
-<header>
-  <svg class="logo-main" viewBox="0 0 600 200" xmlns="http://www.w3.org/2000/svg">
-    <defs>
-      <linearGradient id="g1" x1="0%" y1="0%" x2="100%" y2="0%">
-        <stop offset="0%" stop-color="#00d4ff"/>
-        <stop offset="100%" stop-color="#1e6cff"/>
-      </linearGradient>
-    </defs>
-    <path d="M40 140 C160 40, 380 40, 540 80" fill="none" stroke="url(#g1)" stroke-width="12" stroke-linecap="round" opacity="0.8"/>
-    <text x="50" y="130" font-size="110" font-weight="900" fill="url(#g1)">G</text>
-    <text x="190" y="130" font-size="110" font-weight="900" fill="#fff" opacity="0.9">WS</text>
-    <circle cx="520" cy="66" r="8" fill="#00d4ff">
-        <animate attributeName="opacity" values="1;0.3;1" dur="2s" repeatCount="indefinite" />
-    </circle>
-  </svg>
+    <!-- INÍCIO -->
+    <section id="inicio">
+        <h1>Início</h1>
+        <p>
+            Este é um site de vendas criado para apresentar produtos e serviços
+            de forma clara, organizada e objetiva.
+        </p>
+        <p>
+            Tudo foi pensado para ser direto, funcional e acessível
+            em qualquer dispositivo.
+        </p>
+    </section>
 
-  <h1>Digital Experience</h1>
-  <p>Gabriel Web Site — Transformando conceitos em interfaces de alta performance e design impecável.</p>
-  
-  <a class="btn" href="#sobre">Explorar Projetos</a>
-</header>
+<section id="como-funciona">
+    <h2>Como Funciona</h2>
 
-<section id="sobre">
-  <h2>Sobre</h2>
-  <p style="font-size: 1.4rem; max-width: 800px; font-weight: 300;">
-    Especialista em criar ecossistemas digitais onde o <strong>design</strong> e a <strong>tecnologia</strong> se fundem. Meu foco é eliminar o ruído e entregar apenas o que há de mais refinado no desenvolvimento moderno.
-  </p>
+    <div class="passos-container">
+        <div class="passo">
+            <h3>1. Escolha seu Plano</h3>
+            <p>Selecione o plano que melhor atende às suas necessidades.</p>
+        </div>
+
+        <div class="passo">
+            <h3>2. Entre em Contato</h3>
+            <p>Fale conosco via WhatsApp ou formulário, explique o que deseja.</p>
+        </div>
+
+        <div class="passo">
+            <h3>3. Desenvolvimento</h3>
+            <p>Trabalhamos para criar seu site funcional, bonito e rápido.</p>
+        </div>
+
+        <div class="passo">
+            <h3>4. Entrega e Suporte</h3>
+            <p>Receba seu site pronto e conte com nosso suporte se precisar.</p>
+        </div>
+    </div>
 </section>
 
-<section id="habilidades">
-  <h2>Habilidades</h2>
-  <div class="grid skills">
-    <div class="card">
-      <h3>Frontend</h3>
-      <p>Interfaces reativas com foco em UX, utilizando as melhores práticas de HTML5 e CSS moderno.</p>
-    </div>
-    <div class="card">
-      <h3>Performance</h3>
-      <p>Otimização de carregamento crítica e Core Web Vitals para máxima velocidade.</p>
-    </div>
-    <div class="card">
-      <h3>UI/UX Design</h3>
-      <p>Prototipagem de alta fidelidade focada na jornada e conversão do usuário.</p>
-    </div>
-  </div>
-</section>
+    <!-- SOBRE -->
+    <section id="sobre">
+        <h2>Sobre o Site</h2>
+        <p>
+            Criado para vender sem enrolação. Aqui o foco é conversão,
+            não fazer você clicar em 37 menus.
+        </p>
+        <p>
+            Qualidade, preço justo e entrega eficiente.
+        </p>
+    </section>
 
-<section id="planos">
-  <h2>Planos e Investimento</h2>
-  <div class="grid projects">
+    <!-- POR QUE NOS ESCOLHER -->
+    <section id="porque-nos-escolher">
+        <h2>Por que nos escolher</h2>
+
+        <p>
+            Criamos sites simples, funcionais e eficientes,
+            pensados para quem quer resultado.
+        </p>
+
+        <ul>
+            <li>Entrega rápida e comunicação direta</li>
+            <li>Planos acessíveis, sem taxas escondidas</li>
+            <li>Design limpo e responsivo</li>
+            <li>Suporte direto via WhatsApp</li>
+            <li>Foco em conversão</li>
+        </ul>
+    </section>
+
+    <!-- PLANOS -->
     
-    <div class="card">
-      <div>
-        <h3>Landing Page</h3>
-        <p>Alta conversão para o seu produto.</p>
-        <ul>
-          <li>Seção única estratégica</li>
-          <li>Design Responsivo</li>
-          <li>Otimização SEO</li>
-          <li>Integração WhatsApp</li>
-        </ul>
-      </div>
-      <a href="https://wa.me/5515996228860?text=Olá!%20Gostaria%20de%20um%20orçamento:%0A%0A----------------------------%0A*PLANURA:*%20LANDING%20PAGE%0A*SOLICITANTE:*%20Via%20Website%0A----------------------------" class="btn" style="text-align: center;">Solicitar Agora</a>
-    </div>
+    <section id="planos">
+    <h2>Planos de Criação de Sites</h2>
 
-    <div class="card" style="border-color: var(--blue);">
-      <div>
-        <h3>Institucional</h3>
-        <p>Presença digital profissional completa.</p>
-        <ul>
-          <li>Até 5 páginas personalizadas</li>
-          <li>Painel Administrativo</li>
-          <li>Blog / Notícias</li>
-          <li>Certificado SSL</li>
-        </ul>
-      </div>
-      <a href="https://wa.me/5515996228860?text=Olá!%20Gostaria%20de%20um%20orçamento:%0A%0A----------------------------%0A*PLANURA:*%20INSTITUCIONAL%0A*SOLICITANTE:*%20Via%20Website%0A----------------------------" class="btn" style="text-align: center;">Solicitar Agora</a>
-    </div>
+    <p class="descricao-planos">
+        Desenvolvemos sites focados em clareza, desempenho e conversão.
+        Cada plano foi pensado para um tipo de necessidade real,
+        não para encher linguiça com nome bonito.
+    </p>
 
-    <div class="card">
-      <div>
-        <h3>E-commerce</h3>
-        <p>Venda seus produtos em todo o mundo.</p>
-        <ul>
-          <li>Loja Virtual Completa</li>
-          <li>Checkout Seguro</li>
-          <li>Gestão de Estoque</li>
-          <li>Treinamento de uso</li>
-        </ul>
-      </div>
-      <a href="https://wa.me/5515996228860?text=Olá!%20Gostaria%20de%20um%20orçamento:%0A%0A----------------------------%0A*PLANURA:*%20E-COMMERCE%0A*SOLICITANTE:*%20Via%20Website%0A----------------------------" class="btn" style="text-align: center;">Solicitar Agora</a>
-    </div>
+    <div class="planos-container">
 
-  </div>
+        <div class="plano">
+            <span class="plano-tag">BÁSICO</span>
+
+            <h3>Plano Básico</h3>
+
+            <p class="plano-desc">
+                Ideal para quem precisa de um site simples,
+                direto e funcional para apresentar um serviço
+                ou contato profissional.
+            </p>
+
+            <ul class="plano-lista">
+                <li>✔ Página única (one page)</li>
+                <li>✔ Layout simples e limpo</li>
+                <li>✔ Compatível com celular e PC</li>
+                <li>✔ Link direto para WhatsApp</li>
+                <li>✔ Entrega rápida</li>
+            </ul>
+
+            <div class="plano-preco">
+                <span>Valor único</span>
+                <strong>R$ 12,99</strong>
+            </div>
+        </div>
+
+        <div class="plano destaque">
+            <span class="plano-tag destaque-tag">MAIS ESCOLHIDO</span>
+
+            <h3>Plano Intermediário</h3>
+
+            <p class="plano-desc">
+                Para quem quer um site mais organizado,
+                com melhor estrutura e aparência profissional,
+                sem exagero e sem complicação.
+            </p>
+
+            <ul class="plano-lista">
+                <li>✔ Até 3 seções</li>
+                <li>✔ Organização visual melhorada</li>
+                <li>✔ Design mais elaborado</li>
+                <li>✔ Botões de contato estratégicos</li>
+                <li>✔ Suporte durante o desenvolvimento</li>
+            </ul>
+
+            <div class="plano-preco">
+                <span>Valor único</span>
+                <strong>R$ 19,99</strong>
+            </div>
+        </div>
+
+        <div class="plano">
+            <span class="plano-tag">PROFISSIONAL</span>
+
+            <h3>Plano Completo</h3>
+
+            <p class="plano-desc">
+                Indicado para quem quer vender,
+                divulgar serviços ou transmitir
+                máxima credibilidade online.
+            </p>
+
+            <ul class="plano-lista">
+                <li>✔ Site completo e estruturado</li>
+                <li>✔ Foco em conversão</li>
+                <li>✔ Visual profissional</li>
+                <li>✔ Melhor experiência do usuário</li>
+                <li>✔ Ideal para negócios e serviços</li>
+            </ul>
+
+            <div class="plano-preco">
+                <span>Valor único</span>
+                <strong>R$ 39,99</strong>
+            </div>
+        </div>
+
+    </div>
 </section>
 
+<section id="contrate-agora">
+    <h2>Contrate Agora</h2>
+    <p class="subtitulo">
+        Garanta seu site profissional de forma rápida, segura e eficiente. Escolha seu plano e comece agora mesmo!
+    </p>
+
+    <div class="beneficios">
+        <div class="beneficio-card">
+            <span class="icone">⚡</span>
+            <h3>Entrega Rápida</h3>
+            <p>Seu site pronto em poucos dias, sem enrolação.</p>
+        </div>
+        <div class="beneficio-card">
+            <span class="icone">💬</span>
+            <h3>Suporte Direto</h3>
+            <p>Fale conosco via WhatsApp durante todo o processo.</p>
+        </div>
+        <div class="beneficio-card">
+            <span class="icone">🎨</span>
+            <h3>Design Profissional</h3>
+            <p>Sites modernos, responsivos e focados em conversão.</p>
+        </div>
+    </div>
+
+    <button onclick="contratarAgora()">Comprar Agora</button>
+</section>
+
+<script>
+function contratarAgora() {
+    const numero = "15996228860";
+    const mensagem = "Olá! Quero contratar um dos planos de criação de site agora.";
+    const texto = encodeURIComponent(mensagem);
+    const url = `https://wa.me/${numero}?text=${texto}`;
+    window.open(url, "_blank");
+}
+</script>
+
+<!-- FALE CONOSCO -->
+<section id="fale-conosco">
+    <div class="fale-container">
+        <div class="fale-texto">
+            <h2>Fale Conosco</h2>
+            <p>Tem interesse em nossos planos ou precisa de ajuda? Clique no botão e fale diretamente com a gente via WhatsApp. Atendimento rápido e sem enrolação!</p>
+        </div>
+        <div class="fale-botao">
+            <a href="https://wa.me/15996228860" target="_blank">
+                <span class="icone">💬</span>
+                <span>Iniciar Conversa</span>
+            </a>
+        </div>
+    </div>
+</section>
+
+    <!-- FAQ -->
+    <section id="faq">
+        <h2>Perguntas Frequentes</h2>
+
+        <div class="faq-item">
+            <h3>O que está incluso?</h3>
+            <p>Design moderno, site responsivo e páginas básicas.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>Funciona em celular?</h3>
+            <p>Sim. Se não funcionasse, nem chamaríamos de site.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>Prazo de entrega?</h3>
+            <p>De 1 a 5 dias úteis, dependendo do plano.</p>
+        </div>
+    </section>
+
+<section id="helpbot">
+    <h2>HelpBot - Suporte Rápido</h2>
+    <p class="subtitulo">Selecione uma pergunta ou descreva seu problema. Resposta rápida via WhatsApp!</p>
+
+    <div class="faq-pre">
+        <button class="faq-btn" data-text="Como contratar um plano?">Como contratar um plano?</button>
+        <button class="faq-btn" data-text="Quanto tempo leva para o site ficar pronto?">Tempo de entrega</button>
+        <button class="faq-btn" data-text="Posso pedir alterações depois do site pronto?">Alterações futuras</button>
+        <button class="faq-btn" data-text="O site já vem com domínio e hospedagem?">Domínio e hospedagem</button>
+        <button class="faq-btn" data-text="O site funciona em celular e tablet?">Responsividade</button>
+    </div>
+
+    <div class="custom-problem">
+        <textarea id="problema" placeholder="Descreva seu problema aqui..."></textarea>
+        <button id="enviar-problema">Enviar para o WhatsApp</button>
+    </div>
+</section>
+
+<script>
+const numero = "15996228860";
+
+// Perguntas pré-programadas
+document.querySelectorAll('.faq-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+        const mensagem = encodeURIComponent(`Olá! Tenho uma dúvida: ${btn.dataset.text}`);
+        window.open(`https://wa.me/${numero}?text=${mensagem}`, "_blank");
+    });
+});
+
+// Envio de problema personalizado
+document.getElementById('enviar-problema').addEventListener('click', () => {
+    const problema = document.getElementById('problema').value.trim();
+    if(problema === "") {
+        alert("Por favor, descreva seu problema antes de enviar!");
+        return;
+    }
+    const mensagem = encodeURIComponent(`Olá! Tenho o seguinte problema: ${problema}`);
+    window.open(`https://wa.me/${numero}?text=${mensagem}`, "_blank");
+});
+</script>
+
+<!-- CONTATO -->
 <section id="contato">
-  <div class="contact-container">
-    <h2>Vamos conversar?</h2>
-    <p style="margin-bottom: 30px; color: var(--muted);">Disponível para novos projetos e consultorias.</p>
-    <a href="mailto:gbzinstudio@gmail.com">gbzinstudio@gmail.com</a>
-  </div>
+    <h2>Contato</h2>
+    <p class="subtitulo">Entre em contato diretamente pelo WhatsApp. Resposta rápida garantida!</p>
+
+    <form onsubmit="enviarWhats(event)" class="contato-form">
+        <input type="text" id="nome" placeholder="Seu nome" required>
+        <input type="email" id="email" placeholder="Seu email (opcional)">
+        <textarea id="mensagem" placeholder="Sua mensagem" required></textarea>
+        <button type="submit">Enviar para o WhatsApp</button>
+    </form>
 </section>
 
-<footer>
-  <p>© 2025 — GWS | Gabriel Web Site<br>Developed with Precision.</p>
-</footer>
+    <!-- SCRIPTS -->
+    <script>
+        function falarConosco() {
+            const numero = "15996228860";
+            const mensagem = "Olá! Tenho interesse em contratar um plano.";
+            window.open(`https://wa.me/${numero}?text=${encodeURIComponent(mensagem)}`, "_blank");
+        }
+
+        function enviarWhats(event) {
+            event.preventDefault();
+            const nome = document.getElementById("nome").value;
+            const mensagem = document.getElementById("mensagem").value;
+            window.open(
+                `https://wa.me/15996228860?text=${encodeURIComponent(
+                    `Olá, meu nome é ${nome}.\n\n${mensagem}`
+                )}`,
+                "_blank"
+            );
+        }
+    </script>
+
+<!-- Botão Flutuante HelpBot -->
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<button id="helpbot-btn"><span class="material-icons">support_agent</span></button>
+
+<script>
+// Scroll suave para HelpBot
+document.getElementById('helpbot-btn').addEventListener('click', () => {
+    const helpSection = document.getElementById('helpbot');
+    helpSection.scrollIntoView({ behavior: 'smooth' });
+});
+</script>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>Copyright © 2026 Gws. Todos os direitos reservados.</p>
+    </footer>
 
 </body>
 </html>
