@@ -176,6 +176,7 @@ button:hover {
 .passo p { font-size: 15px; color: #bbbbbb; line-height: 1.6; }
 
 /* ===================== PLANOS ===================== */
+
 #planos {
     max-width: 1100px;
     margin: 60px auto;
@@ -183,13 +184,15 @@ button:hover {
     background-color: #141414;
     border-radius: 8px;
     border: 1px solid #1f1f1f;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 25px;
+
+    display: flex; /* Flex horizontal */
+    justify-content: space-between; /* Espaçamento entre planos */
+    flex-wrap: wrap; /* Para quebrar linha em telas menores */
+    gap: 25px; /* Espaçamento uniforme */
 }
 
 #planos h2 {
-    grid-column: 1 / -1;
+    width: 100%; /* Ocupa toda a linha */
     text-align: center;
     font-size: 28px;
     margin-bottom: 35px;
@@ -203,6 +206,9 @@ button:hover {
     border: 1px solid #2a2a2a;
     text-align: center;
     transition: border-color 0.2s ease, transform 0.2s ease;
+
+    flex: 1 1 250px; /* Largura mínima 250px, cresce se houver espaço */
+    min-width: 250px; /* Evita que fique muito pequeno */
 }
 
 .plano:hover {
@@ -210,9 +216,24 @@ button:hover {
     transform: translateY(-4px);
 }
 
-.plano h3 { font-size: 22px; margin-bottom: 10px; color: #ffffff; }
-.plano p { font-size: 15px; color: #bbbbbb; margin-bottom: 18px; }
-.plano strong { display: block; font-size: 24px; color: #25d366; font-weight: bold; }
+.plano h3 {
+    font-size: 22px;
+    margin-bottom: 10px;
+    color: #ffffff;
+}
+
+.plano p {
+    font-size: 15px;
+    color: #bbbbbb;
+    margin-bottom: 18px;
+}
+
+.plano strong {
+    display: block;
+    font-size: 24px;
+    color: #25d366;
+    font-weight: bold;
+}
 
 /* REMOVE BOLINHAS DE LISTA NOS PLANOS */
 #planos ul {
@@ -220,10 +241,23 @@ button:hover {
     padding-left: 0;
     margin: 0;
 }
+
 #planos li {
     margin-bottom: 8px;
     color: #bbbbbb;
     font-size: 15px;
+}
+
+/* RESPONSIVO */
+@media (max-width: 768px) {
+    #planos {
+        flex-direction: column;
+        align-items: center;
+    }
+    .plano {
+        width: 100%;
+        max-width: 400px; /* Ajuste máximo */
+    }
 }
 
 /* ===================== CONTRATE AGORA ===================== */
