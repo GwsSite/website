@@ -314,8 +314,7 @@ button:hover {
     transform: scale(1.05);
 }
 
-/* ===================== FALE CONOSCO ===================== */
-
+/* FALE CONOSCO */
 #fale-conosco {
     max-width: 1100px;
     margin: 50px auto 100px;
@@ -330,64 +329,68 @@ button:hover {
     transition: transform 0.35s ease, box-shadow 0.35s ease;
 }
 
-/* efeito de luz suave atrás */
-#fale-conosco::before {
-    content: "";
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: radial-gradient(circle at center, rgba(255,255,255,0.05), transparent 70%);
-    transform: rotate(25deg);
-    transition: all 0.6s ease;
-    pointer-events: none;
-}
-
 #fale-conosco:hover {
     transform: translateY(-8px);
     box-shadow: 0 20px 40px rgba(0,0,0,0.8);
 }
 
-#fale-conosco:hover::before {
-    transform: rotate(45deg);
+/* Layout interno */
+.fale-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 30px;
 }
 
-/* Título */
-#fale-conosco h2 {
+.fale-texto {
+    flex: 1 1 500px;
+    text-align: left;
+}
+
+.fale-texto h2 {
     font-size: 34px;
     margin-bottom: 18px;
     color: #ffffff;
     font-weight: 700;
     text-shadow: 0 2px 8px rgba(0,0,0,0.6);
-    letter-spacing: 1px;
 }
 
-/* Parágrafo */
-#fale-conosco p {
+.fale-texto p {
     font-size: 17px;
     color: #cccccc;
-    margin-bottom: 35px;
     line-height: 1.6;
 }
 
-/* Botão */
-#fale-conosco button {
-    padding: 16px 50px;
-    font-size: 16px;
-    font-weight: 700;
+/* Botão WhatsApp */
+.fale-botao {
+    flex: 0 1 250px;
+    text-align: center;
+}
+
+.btn-whatsapp {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px 40px;
     background: linear-gradient(135deg, #9b59b6, #8e44ad);
     color: #ffffff;
-    border: none;
+    font-weight: 700;
+    font-size: 16px;
     border-radius: 50px;
-    cursor: pointer;
+    text-decoration: none;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.6);
     position: relative;
     overflow: hidden;
     transition: all 0.4s ease;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.6);
 }
 
-#fale-conosco button::before {
+.btn-whatsapp .icone {
+    font-size: 22px;
+}
+
+/* Efeito de luz animada no botão */
+.btn-whatsapp::before {
     content: "";
     position: absolute;
     top: 0;
@@ -399,16 +402,16 @@ button:hover {
     transition: all 0.5s ease;
 }
 
-#fale-conosco button:hover::before {
+.btn-whatsapp:hover::before {
     left: 150%;
 }
 
-#fale-conosco button:hover {
-    transform: scale(1.12) translateY(-4px);
+.btn-whatsapp:hover {
+    transform: scale(1.12) translateY(-3px);
     box-shadow: 0 12px 30px rgba(0,0,0,0.7);
 }
 
-#fale-conosco button:active {
+.btn-whatsapp:active {
     transform: scale(0.96);
     box-shadow: 0 5px 18px rgba(0,0,0,0.55);
 }
@@ -419,16 +422,11 @@ button:hover {
 }
 
 @media (max-width: 768px) {
-    #fale-conosco { margin: 35px 15px 60px; padding: 35px 20px; }
-    #fale-conosco h2 { font-size: 28px; }
-    #fale-conosco p { font-size: 16px; }
-    #fale-conosco button { width: 100%; padding: 16px 0; }
+    .fale-container { flex-direction: column; text-align: center; }
+    .fale-texto { text-align: center; }
+    .btn-whatsapp { width: 100%; justify-content: center; }
 }
 
-@media (max-width: 480px) {
-    #fale-conosco h2 { font-size: 24px; }
-    #fale-conosco p { font-size: 15px; }
-}
 
 /* ===================== POR QUE NOS ESCOLHER ===================== */
 #porque-nos-escolher {
