@@ -8,13 +8,29 @@
 </head>
 <body>
 
-    <!-- NAVBAR -->
-    <nav>
-        <a href="#inicio">Início</a> |
-        <a href="#sobre">Sobre</a> |
-        <a href="#planos">Planos</a> |
-        <a href="#contato">Contato</a>
-    </nav>
+<!-- MENU LATERAL -->
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+<div class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+        <span class="close-btn material-icons" id="close-btn">close</span>
+    </div>
+    <ul class="menu">
+        <li><a href="#inicio"><span class="material-icons">home</span> Início</a></li>
+        <li><a href="#sobre"><span class="material-icons">info</span> Sobre</a></li>
+        <li><a href="#planos"><span class="material-icons">price_check</span> Planos</a></li>
+        <li><a href="#contato"><span class="material-icons">contacts</span> Contato</a></li>
+    </ul>
+</div>
+
+<!-- BOTÃO PARA MOSTRAR MENU -->
+<div class="menu-toggle" id="menu-toggle">
+    <span class="material-icons">menu</span>
+</div>
+
+<!-- BOTÃO PARA ABRIR MENU EM MOBILE -->
+<div class="menu-toggle" id="menu-toggle">&#9776;</div>
+
 
     <!-- INÍCIO -->
     <section id="inicio">
@@ -315,6 +331,23 @@ document.getElementById('enviar-problema').addEventListener('click', () => {
                 "_blank"
             );
         }
+    </script>
+
+    <script>
+
+        // ===================== MENU TOGGLE =====================
+const menuToggle = document.getElementById('menu-toggle');
+const sidebar = document.getElementById('sidebar');
+const closeBtn = document.getElementById('close-btn');
+
+menuToggle.addEventListener('click', () => {
+    sidebar.classList.add('active');
+});
+
+closeBtn.addEventListener('click', () => {
+    sidebar.classList.remove('active');
+});
+
     </script>
 
     <!-- FOOTER -->
