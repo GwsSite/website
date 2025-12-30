@@ -330,3 +330,134 @@ section p {
     }
 }
 
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* VARIÁVEIS */
+:root {
+    --bg: #0b0b0d;
+    --surface: #111114;
+    --border: #1e1e24;
+    --text: #e8e8ea;
+    --muted: #9a9aa1;
+}
+
+/* BASE */
+body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* SEÇÃO AFILIADOS */
+.afiliados {
+    max-width: 880px;
+    margin: 180px auto;
+    padding: 0 24px;
+}
+
+/* TAG */
+.afiliados .tag {
+    display: inline-block;
+    margin-bottom: 22px;
+    font-size: 0.7rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #6f6f76;
+}
+
+/* TÍTULO */
+.afiliados h2 {
+    font-size: clamp(2.2rem, 4vw, 2.8rem);
+    font-weight: 600;
+    letter-spacing: -0.8px;
+    margin-bottom: 18px;
+}
+
+/* TEXTO */
+.afiliados p {
+    max-width: 560px;
+    font-size: 1.05rem;
+    color: var(--muted);
+    margin-bottom: 64px;
+}
+
+/* BOTÃO – DESIGN FINAL */
+.btn-afiliado {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 16px;
+
+    padding: 20px 36px;
+
+    background: linear-gradient(
+        180deg,
+        #ffffff 0%,
+        #e6e6e6 100%
+    );
+
+    color: #0b0b0d;
+    text-decoration: none;
+
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 1.4px;
+    text-transform: uppercase;
+
+    border: 1px solid #d0d0d0;
+
+    box-shadow:
+        0 1px 0 rgba(255,255,255,0.7) inset,
+        0 14px 35px rgba(0,0,0,0.35);
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        opacity 0.2s ease;
+}
+
+/* SETA */
+.btn-afiliado span {
+    font-size: 1.3rem;
+    font-weight: 400;
+    transition: transform 0.2s ease;
+}
+
+/* HOVER */
+.btn-afiliado:hover {
+    transform: translateY(-3px);
+    box-shadow:
+        0 1px 0 rgba(255,255,255,0.7) inset,
+        0 20px 45px rgba(0,0,0,0.45);
+    opacity: 0.95;
+}
+
+.btn-afiliado:hover span {
+    transform: translateX(6px);
+}
+
+/* ACTIVE */
+.btn-afiliado:active {
+    transform: translateY(-1px);
+    box-shadow:
+        0 1px 0 rgba(255,255,255,0.7) inset,
+        0 10px 25px rgba(0,0,0,0.4);
+}
+
+/* MOBILE */
+@media (max-width: 640px) {
+    .afiliados {
+        margin: 130px auto;
+    }
+
+    .afiliados p {
+        font-size: 1rem;
+    }
+}
