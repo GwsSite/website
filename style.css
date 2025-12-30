@@ -329,3 +329,64 @@ section p {
         padding: 30px;
     }
 }
+
+.afiliados {
+    max-width: 900px;
+    margin: 120px auto;
+    padding: 40px;
+    background: #0e0e0e;
+    border-radius: 14px;
+    color: #fff;
+    box-shadow: 0 0 40px rgba(0,255,150,0.08);
+}
+
+.afiliados h2 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.afiliados p {
+    font-size: 0.95rem;
+    color: #aaa;
+    margin-bottom: 30px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.afiliados input,
+.afiliados textarea {
+    width: 100%;
+    padding: 14px;
+    background: #151515;
+    border: 1px solid #222;
+    border-radius: 8px;
+    color: #fff;
+    outline: none;
+}
+
+.afiliados textarea {
+    grid-column: span 2;
+    height: 120px;
+    resize: none;
+    margin-top: 15px;
+}
+
+.afiliados button {
+    margin-top: 25px;
+    padding: 15px;
+    width: 100%;
+    background: linear-gradient(135deg, #00ff99, #00cc77);
+    border: none;
+    border-radius: 10px;
+    font-weight: 600;
+    cursor: pointer;
+    color: #000;
+}
+
+.afiliados button:hover {
+    opacity: 0.9;
+}
