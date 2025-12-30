@@ -238,6 +238,73 @@ Aguardo confirmação.`;
 }
 </script>
 
+const perguntas = [
+    {q:"O serviço é seguro?", r:"Sim, trabalhamos com entrega automática e segura."},
+    {q:"Os seguidores caem?", r:"Pode haver pequenas quedas, fazemos reposição."},
+    {q:"Precisa da senha?", r:"Não. Nunca pedimos senha."},
+    {q:"Quanto tempo demora?", r:"Normalmente de minutos até algumas horas."},
+    {q:"Funciona em conta privada?", r:"Não. A conta deve estar pública."},
+
+    {q:"Tem garantia?", r:"Sim, garantia contra quedas iniciais."},
+    {q:"Aceita Pix?", r:"Sim, Pix disponível."},
+    {q:"Tem suporte?", r:"Sim, suporte via WhatsApp."},
+    {q:"Entrega é instantânea?", r:"Na maioria dos casos, sim."},
+    {q:"Pode dar ban?", r:"Não, seguimos limites seguros."},
+
+    {q:"Posso comprar mais vezes?", r:"Sim, sem limite de compras."},
+    {q:"Serve para lojas?", r:"Sim, ótimo para negócios."},
+    {q:"É seguidor brasileiro?", r:"Depende do pacote escolhido."},
+    {q:"Tem painel?", r:"Sim, após aprovação."},
+    {q:"Tem afiliados?", r:"Sim, temos programa de afiliados."},
+
+    {q:"Como virar afiliado?", r:"Preencha o formulário de afiliados."},
+    {q:"Comissão é alta?", r:"Sim, comissões atrativas."},
+    {q:"Paga quando?", r:"Pagamento combinado após vendas."},
+    {q:"Precisa investir?", r:"Não precisa investir nada."},
+    {q:"Onde divulgo?", r:"Instagram, TikTok, WhatsApp, etc."}
+];
+
+let pagina = 0;
+const porPagina = 5;
+
+const chat = document.getElementById("chatMessages");
+const buttonsDiv = document.getElementById("questionButtons");
+
+function renderPerguntas() {
+    buttonsDiv.innerHTML = "";
+    const inicio = pagina * porPagina;
+    const fim = inicio + porPagina;
+
+    perguntas.slice(inicio, fim).forEach(item => {
+        const btn = document.createElement("button");
+        btn.innerText = item.q;
+        btn.onclick = () => responder(item.q, item.r);
+        buttonsDiv.appendChild(btn);
+    });
+}
+
+function responder(pergunta, resposta) {
+    chat.innerHTML += `<div class="user">${pergunta}</div>`;
+    chat.innerHTML += `<div class="bot">🤖 ${resposta}</div>`;
+    chat.scrollTop = chat.scrollHeight;
+}
+
+document.getElementById("next").onclick = () => {
+    if ((pagina + 1) * porPagina < perguntas.length) {
+        pagina++;
+        renderPerguntas();
+    }
+};
+
+document.getElementById("prev").onclick = () => {
+    if (pagina > 0) {
+        pagina--;
+        renderPerguntas();
+    }
+};
+
+renderPerguntas();
+
 </body>
 
 </html>
