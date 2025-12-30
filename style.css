@@ -4,6 +4,51 @@
     box-sizing: border-box;
 }
 
+.navbar {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: calc(100% - 80px);
+    max-width: 1100px;
+    background: rgba(15, 15, 15, 0.85);
+    backdrop-filter: blur(10px);
+    border-radius: 16px;
+    z-index: 999;
+    padding: 12px 24px;
+}
+
+.nav-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.nav-logo {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    color: #ffffff;
+    letter-spacing: 1px;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 24px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #cfcfcf;
+    font-size: 0.95rem;
+    transition: color 0.2s ease;
+}
+
+.nav-links a:hover {
+    color: #ffffff;
+}
+
+
 .titulo {
     font-family: 'Montserrat', sans-serif;
     font-weight: 700;
