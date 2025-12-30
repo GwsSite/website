@@ -155,3 +155,37 @@ body {
     border-color: #1f6f52;
     background: #0f3d2e;
 }
+
+#maintenanceOverlay {
+    position: fixed;
+    inset: 0;
+    background: #0b0b0b;
+    color: #ffffff;
+    z-index: 9999;
+
+    display: none;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+    padding: 20px;
+}
+
+#maintenanceOverlay .maintenance-box {
+    max-width: 520px;
+    background: #111111;
+    border: 1px solid #1f1f1f;
+    border-radius: 12px;
+    padding: 40px 30px;
+}
+
+#maintenanceOverlay h1 {
+    font-size: 2rem;
+    margin-bottom: 15px;
+    letter-spacing: 1px;
+}
+
+#maintenanceOverlay p {
+    color: #b0b0b0;
+    line-height: 1.6;
+}
