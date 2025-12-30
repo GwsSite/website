@@ -56,6 +56,33 @@
         </p>
     </section>
 
+<section id="seguidores" class="seguidores">
+    <h2>Comprar Seguidores</h2>
+    <p class="seguidores-desc">
+        Serviço simples, direto e transparente.  
+        Informe os dados abaixo e finalize pelo WhatsApp.
+    </p>
+
+    <div class="seguidores-box">
+        <label>
+            Link do Instagram
+            <input type="url" id="instaLink" placeholder="https://instagram.com/seuperfil">
+        </label>
+
+        <label>
+            Quantidade de seguidores
+            <input type="number" id="quantidade" placeholder="Ex: 500" step="100" min="100">
+            <small>R$ 2,00 a cada 100 seguidores</small>
+        </label>
+
+        <div class="preco">
+            Total: <span id="total">R$ 0,00</span>
+        </div>
+
+        <button onclick="enviarWhats()">Finalizar no WhatsApp</button>
+    </div>
+</section>
+
     <section id="projects">
         <h2>Projetos</h2>
 
@@ -141,6 +168,40 @@
             }
         });
     </script>
+
+<script>
+const quantidadeInput = document.getElementById("quantidade");
+const totalEl = document.getElementById("total");
+
+quantidadeInput.addEventListener("input", () => {
+    const qtd = parseInt(quantidadeInput.value) || 0;
+    const total = (qtd / 100) * 2;
+    totalEl.innerText = `R$ ${total.toFixed(2).replace('.', ',')}`;
+});
+
+function enviarWhats() {
+    const link = document.getElementById("instaLink").value;
+    const qtd = document.getElementById("quantidade").value;
+    const total = totalEl.innerText;
+
+    if (!link || !qtd) {
+        alert("Preencha todos os campos.");
+        return;
+    }
+
+    const msg = 
+`Olá! Quero comprar seguidores.
+
+📎 Instagram: ${link}
+👥 Quantidade: ${qtd}
+💰 Total: ${total}
+
+Aguardo confirmação.`;
+
+    const url = `https://wa.me/5515996228860?text=${encodeURIComponent(msg)}`;
+    window.open(url, "_blank");
+}
+</script>
 
 </body>
 
