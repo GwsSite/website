@@ -1,0 +1,93 @@
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #0b0b0b;
+    color: #fff;
+}
+
+header {
+    padding: 90px 20px;
+    text-align: center;
+    background: radial-gradient(circle at top, #00ff99 0%, #0b0b0b 45%);
+}
+
+section {
+    max-width: 1100px;
+    margin: 80px auto;
+    padding: 0 20px;
+}
+
+.beneficios {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 25px;
+}
+
+.card {
+    background: #121212;
+    padding: 30px;
+    border-radius: 14px;
+    border: 1px solid #1f1f1f;
+}
+
+.planos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 25px;
+    text-align: center;
+}
+
+.plano {
+    background: #101010;
+    padding: 30px;
+    border-radius: 14px;
+    border: 1px solid #1f1f1f;
+}
+
+.plano span {
+    font-size: 1.8rem;
+    color: #00ff99;
+}
+
+.afiliado {
+    background: #0f0f0f;
+    padding: 50px;
+    border-radius: 18px;
+    border: 1px solid #1f1f1f;
+}
+
+.afiliado form {
+    display: grid;
+    gap: 15px;
+}
+
+.afiliado input,
+.afiliado textarea {
+    padding: 14px;
+    background: #151515;
+    border: 1px solid #2a2a2a;
+    border-radius: 10px;
+    color: #fff;
+}
+
+.afiliado textarea {
+    height: 120px;
+    resize: none;
+}
+
+.afiliado button {
+    padding: 16px;
+    background: linear-gradient(135deg, #00ff99, #00cc77);
+    border: none;
+    border-radius: 12px;
+    font-weight: bold;
+    cursor: pointer;
+    color: #000;
+}
+
+footer {
+    text-align: center;
+    padding: 30px;
+    color: #666;
+    font-size: 0.85rem;
+}
