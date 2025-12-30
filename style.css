@@ -202,7 +202,6 @@ section p {
     color: #bdbdbd;
 }
 
-
 /* RESPONSIVO */
 @media (max-width: 768px) {
     .nav-links {
@@ -216,4 +215,67 @@ section p {
     section {
         padding: 60px 20px;
     }
+}
+
+.seguidores {
+    padding: 80px 20px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.seguidores-desc {
+    color: #bdbdbd;
+    max-width: 600px;
+    margin-bottom: 30px;
+}
+
+.seguidores-box {
+    background: #151518;
+    padding: 35px;
+    border-radius: 22px;
+    max-width: 420px;
+}
+
+.seguidores-box label {
+    display: block;
+    margin-bottom: 20px;
+    font-size: 0.9rem;
+    color: #cfcfcf;
+}
+
+.seguidores-box input {
+    width: 100%;
+    margin-top: 8px;
+    padding: 14px;
+    border-radius: 12px;
+    border: none;
+    background: #0f0f12;
+    color: #ffffff;
+    outline: none;
+}
+
+.seguidores-box small {
+    color: #888;
+}
+
+.preco {
+    margin: 25px 0;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.seguidores-box button {
+    width: 100%;
+    padding: 14px;
+    border-radius: 30px;
+    border: none;
+    background: #ffffff;
+    color: #000;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.seguidores-box button:hover {
+    transform: translateY(-2px);
 }
