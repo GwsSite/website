@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gabriel Silva</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <nav class="bar">
+        <nav class="navbar">
+    <div class="nav-container">
+        <span class="nav-logo">Gabriel Silva</span>
+
+        <ul class="nav-links">
+            <li><a href="#inicio">Início</a></li>
+            <li><a href="#about">Sobre</a></li>
+            <li><a href="#projects">Projetos</a></li>
+            <li><a href="#contact">Contato</a></li>
+        </ul>
+    </div>
+</nav>
+
+    </nav>
+    <header class="header">
+        <h1 class="titulo">Gabriel Silva</h1>
+        <p>Programador • Criador de Conteúdo • Identidade Digital</p>
+    </header>
+
+    <section id="inicio">
+        <div class="inicio">
+            <h2>Presença oficial</h2>
+            <p>
+                Este é o site oficial de <strong>GWS - Gabriel Web Site</strong>.
+                Projetos, identidade e evolução — tudo em um só lugar.
+            </p>
+            <a href="https://instagram.com/eu.gabrieloficial1" target="_blank" class="btn">
+                Instagram Oficial
+            </a>
+        </div>
+    </section>
+
+    <section id="about">
+        <h2>Sobre</h2>
+        <p>
+            Desenvolvedor focado em design funcional, experiências digitais
+            e projetos criativos. Nada genérico, nada copiado.
+            Identidade própria ou nada feito.
+        </p>
+    </section>
+
+    <section id="projects">
+        <h2>Projetos</h2>
+
+        <div class="card">
+            <h3>Web Design</h3>
+            <p>Sites modernos, rápidos e com identidade visual real.</p>
+        </div>
+
+        <div class="card">
+            <h3>Programação</h3>
+            <p>Sistemas, scripts e automações bem pensadas.</p>
+        </div>
+
+        <div class="card">
+            <h3>Conteúdo Criativo</h3>
+            <p>Machinima, ideias autorais e projetos fora do óbvio.</p>
+        </div>
+    </section>
+    <section id="contact">
+        <h2>Contato Direto</h2>
+        <p>
+            Quer falar comigo? Sem intermediários, sem enrolação.
+            Escolha um canal e pronto.
+        </p>
+
+        <div class="contact-links">
+            <a href="https://wa.me/5515996228860" target="_blank">WhatsApp Business</a>
+            <a href="https://instagram.com/eu.gabrieloficial1" target="_blank">Instagram</a>
+            <a href="mailto: gbzin.contatooficial@gmail.com">Email</a>
+        </div>
+    </section>
+
+
+    <footer class="footer">
+        <p>© 2025 eu.gabrieloficial1 — Todos os direitos reservados</p>
+    </footer>
+
+    <!-- OVERLAY DE MANUTENÇÃO -->
+    <div id="maintenanceOverlay">
+        <div class="maintenance-box">
+            <h1>Manutenção</h1>
+            <p id="maintenanceMessage">Site temporariamente indisponível.</p>
+        </div>
+    </div>
+
+    <!-- MANUTENÇÃO EM TEMPO REAL -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+        import { getDatabase, ref, onValue } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyAI1hMvXCLtbpdeHhm5Sv8nn7nTZnRi-84",
+            authDomain: "gws-site-ofc.firebaseapp.com",
+            databaseURL: "https://gws-site-ofc-default-rtdb.firebaseio.com",
+            projectId: "gws-site-ofc",
+            storageBucket: "gws-site-ofc.firebasestorage.app",
+            messagingSenderId: "527110934564",
+            appId: "1:527110934564:web:0f9ed3947f3c01eea008b1"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const database = getDatabase(app);
+
+        const overlay = document.getElementById("maintenanceOverlay");
+        const messageEl = document.getElementById("maintenanceMessage");
+
+        onValue(ref(database, "site/maintenance"), snapshot => {
+            if (!snapshot.exists()) {
+                overlay.style.display = "none";
+                document.body.style.overflow = "";
+                return;
+            }
+
+            const data = snapshot.val();
+
+            if (data.enabled === true) {
+                messageEl.innerText = data.message || "Site em manutenção.";
+                overlay.style.display = "flex";
+                document.body.style.overflow = "hidden";
+            } else {
+                overlay.style.display = "none";
+                document.body.style.overflow = "";
+            }
+        });
+    </script>
+
+</body>
+
+</html>
