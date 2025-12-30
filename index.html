@@ -49,23 +49,13 @@
 
 <section class="afiliados">
     <h2>Programa de Afiliados & Parcerias</h2>
-    <p>Preencha os dados abaixo para solicitar parceria. Nossa equipe analisará sua proposta.</p>
+    <p>Faça parte do nosso programa e comece a ganhar com indicações.</p>
 
-    <form id="formAfiliado">
-        <div class="grid">
-            <input type="text" id="nome" placeholder="Nome completo" required>
-            <input type="number" id="idade" placeholder="Idade" required>
-            <input type="email" id="email" placeholder="Email profissional" required>
-            <input type="password" id="senha" placeholder="Crie uma senha" required>
-            <input type="text" id="instagram" placeholder="Instagram (@seuuser)">
-            <input type="text" id="site" placeholder="Site ou portfólio (opcional)">
-        </div>
-
-        <textarea id="mensagem" placeholder="Conte por que você quer ser afiliado/parceiro"></textarea>
-
-        <button type="submit">Enviar solicitação</button>
-    </form>
+    <a href="https://gwssite.github.io/website/afiliado/" class="btn-afiliado">
+        Acessar área de afiliados
+    </a>
 </section>
+
 
     <section id="about">
         <h2>Sobre</h2>
@@ -221,37 +211,6 @@ Aguardo confirmação.`;
     const url = `https://wa.me/5515996228860?text=${encodeURIComponent(msg)}`;
     window.open(url, "_blank");
 }
-</script>
-
-<script>
-document.getElementById("formAfiliado").addEventListener("submit", function(e) {
-    e.preventDefault();
-
-    const nome = document.getElementById("nome").value;
-    const idade = document.getElementById("idade").value;
-    const email = document.getElementById("email").value;
-    const senha = document.getElementById("senha").value;
-    const insta = document.getElementById("instagram").value;
-    const site = document.getElementById("site").value;
-    const msg = document.getElementById("mensagem").value;
-
-    const texto = `
-📌 NOVA SOLICITAÇÃO DE AFILIADO
-
-👤 Nome: ${nome}
-🎂 Idade: ${idade}
-📧 Email: ${email}
-🔐 Senha: ${senha}
-📸 Instagram: ${insta}
-🌐 Site: ${site}
-
-📝 Mensagem:
-${msg}
-    `;
-
-    const url = `https://wa.me/5515996228860?text=${encodeURIComponent(texto)}`;
-    window.open(url, "_blank");
-});
 </script>
 
 </body>
