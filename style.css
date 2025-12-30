@@ -202,6 +202,7 @@ section p {
     color: #bdbdbd;
 }
 
+
 /* RESPONSIVO */
 @media (max-width: 768px) {
     .nav-links {
