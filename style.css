@@ -1,45 +1,56 @@
+/* RESET */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+/* BASE */
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #0d0d0f;
+    color: #eaeaea;
+    line-height: 1.6;
+    scroll-behavior: smooth;
+}
+
+/* NAVBAR */
 .navbar {
     position: fixed;
     top: 20px;
     left: 50%;
     transform: translateX(-50%);
-    width: calc(100% - 80px);
+    width: calc(100% - 60px);
     max-width: 1100px;
-    background: rgba(15, 15, 15, 0.85);
-    backdrop-filter: blur(10px);
-    border-radius: 16px;
-    z-index: 999;
-    padding: 12px 24px;
+    background: rgba(15, 15, 18, 0.85);
+    backdrop-filter: blur(12px);
+    border-radius: 18px;
+    z-index: 1000;
+    padding: 14px 28px;
 }
 
 .nav-container {
     display: flex;
-    align-items: center;
     justify-content: space-between;
+    align-items: center;
 }
 
 .nav-logo {
     font-family: 'Montserrat', sans-serif;
     font-weight: 700;
-    color: #ffffff;
     letter-spacing: 1px;
+    color: #ffffff;
 }
 
 .nav-links {
     list-style: none;
     display: flex;
-    gap: 24px;
+    gap: 26px;
 }
 
 .nav-links a {
     text-decoration: none;
-    color: #cfcfcf;
+    color: #bdbdbd;
     font-size: 0.95rem;
     transition: color 0.2s ease;
 }
@@ -48,195 +59,160 @@
     color: #ffffff;
 }
 
+/* HEADER */
+.header {
+    padding: 140px 20px 80px;
+    text-align: center;
+}
 
 .titulo {
     font-family: 'Montserrat', sans-serif;
+    font-size: 2.6rem;
     font-weight: 700;
-    letter-spacing: 1.5px;
-}
-
-body {
-    font-family: Arial, Helvetica, sans-serif;
-    background: #0b0b0b;
-    color: #eaeaea;
-    line-height: 1.6;
-}
-
-/* HEADER */
-.header {
-    padding: 60px 20px;
-    text-align: center;
-    border-bottom: 1px solid #1f1f1f;
-}
-
-.header h1 {
-    font-size: 2.5rem;
-    letter-spacing: 2px;
+    margin-bottom: 10px;
 }
 
 .header p {
-    color: #9f9f9f;
-    margin-top: 10px;
+    color: #a0a0a0;
+    font-size: 1rem;
 }
 
-/* HERO */
+/* SECTIONS */
+section {
+    padding: 80px 20px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+section h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+section p {
+    max-width: 700px;
+    color: #cfcfcf;
+}
+
+/* INÍCIO */
 .inicio {
-    max-width: 900px;
-    margin: 80px auto;
-    padding: 0 20px;
     text-align: center;
 }
 
-.inicio h2 {
-    font-size: 2rem;
-    margin-bottom: 20px;
-}
-
 .inicio p {
-    color: #bdbdbd;
-    margin-bottom: 30px;
+    margin: 20px auto;
 }
 
+/* BOTÃO */
 .btn {
     display: inline-block;
-    padding: 14px 28px;
-    background: #0f3d2e;
-    color: #ffffff;
+    margin-top: 25px;
+    padding: 14px 32px;
+    border-radius: 30px;
+    background: #ffffff;
+    color: #000000;
     text-decoration: none;
-    border-radius: 6px;
-    transition: 0.3s;
+    font-weight: 600;
+    transition: transform 0.2s ease, opacity 0.2s ease;
 }
 
 .btn:hover {
-    background: #145c44;
+    transform: translateY(-2px);
+    opacity: 0.9;
 }
 
-/* ABOUT */
-.about {
-    max-width: 900px;
-    margin: 60px auto;
-    padding: 0 20px;
-}
-
-.about h2 {
-    margin-bottom: 15px;
-}
-
-.about p {
-    color: #b0b0b0;
-}
-
-/* PROJECTS */
-.projects {
-    max-width: 1000px;
-    margin: 80px auto;
-    padding: 0 20px;
+/* PROJETOS */
+#projects {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-}
-
-.projects h2 {
-    grid-column: 1 / -1;
-    margin-bottom: 20px;
+    gap: 24px;
 }
 
 .card {
-    background: #111111;
-    border: 1px solid #1f1f1f;
-    padding: 25px;
-    border-radius: 10px;
-    transition: 0.3s;
+    background: #151518;
+    border-radius: 18px;
+    padding: 30px;
+    transition: transform 0.2s ease;
 }
 
 .card:hover {
-    border-color: #1f6f52;
+    transform: translateY(-4px);
 }
 
 .card h3 {
     margin-bottom: 10px;
+    font-family: 'Montserrat', sans-serif;
 }
 
-.card p {
-    color: #9c9c9c;
-}
-
-/* FOOTER */
-.footer {
-    padding: 30px 20px;
-    text-align: center;
-    border-top: 1px solid #1f1f1f;
-    color: #7a7a7a;
-    font-size: 0.9rem;
-}
-
-.contact {
-    max-width: 900px;
-    margin: 80px auto;
-    padding: 0 20px;
-    text-align: center;
-}
-
-.contact h2 {
-    margin-bottom: 15px;
-}
-
-.contact p {
-    color: #b0b0b0;
-    margin-bottom: 30px;
-}
-
+/* CONTATO */
 .contact-links {
+    margin-top: 25px;
     display: flex;
-    justify-content: center;
     gap: 20px;
     flex-wrap: wrap;
 }
 
 .contact-links a {
-    padding: 14px 26px;
-    border: 1px solid #1f1f1f;
-    border-radius: 8px;
     text-decoration: none;
     color: #ffffff;
-    transition: 0.3s;
+    border: 1px solid #2a2a2a;
+    padding: 12px 22px;
+    border-radius: 25px;
+    transition: background 0.2s ease;
 }
 
 .contact-links a:hover {
-    border-color: #1f6f52;
-    background: #0f3d2e;
+    background: #ffffff;
+    color: #000000;
 }
 
+/* FOOTER */
+.footer {
+    text-align: center;
+    padding: 40px 20px;
+    color: #777;
+    font-size: 0.9rem;
+}
+
+/* OVERLAY MANUTENÇÃO */
 #maintenanceOverlay {
     position: fixed;
     inset: 0;
-    background: #0b0b0b;
-    color: #ffffff;
-    z-index: 9999;
-
+    background: rgba(10, 10, 12, 0.95);
     display: none;
     align-items: center;
     justify-content: center;
+    z-index: 2000;
+}
+
+.maintenance-box {
+    background: #141418;
+    padding: 50px 40px;
+    border-radius: 22px;
     text-align: center;
-
-    padding: 20px;
+    max-width: 420px;
 }
 
-#maintenanceOverlay .maintenance-box {
-    max-width: 520px;
-    background: #111111;
-    border: 1px solid #1f1f1f;
-    border-radius: 12px;
-    padding: 40px 30px;
-}
-
-#maintenanceOverlay h1 {
-    font-size: 2rem;
+.maintenance-box h1 {
+    font-family: 'Montserrat', sans-serif;
     margin-bottom: 15px;
-    letter-spacing: 1px;
 }
 
-#maintenanceOverlay p {
-    color: #b0b0b0;
-    line-height: 1.6;
+.maintenance-box p {
+    color: #bdbdbd;
+}
+
+/* RESPONSIVO */
+@media (max-width: 768px) {
+    .nav-links {
+        gap: 16px;
+    }
+
+    .titulo {
+        font-size: 2.1rem;
+    }
+
+    section {
+        padding: 60px 20px;
+    }
 }
