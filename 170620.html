@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Painel de Manutenção</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        body {
+            background: #0b0b0b;
+            color: #eaeaea;
+            font-family: Arial, Helvetica, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .panel {
+            background: #111;
+            border: 1px solid #1f1f1f;
+            padding: 30px;
+            width: 100%;
+            max-width: 420px;
+            border-radius: 10px;
+        }
+
+        h1 {
+            font-size: 1.4rem;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        label {
+            display: block;
+            margin-top: 15px;
+            font-size: 0.9rem;
+            color: #bdbdbd;
+        }
+
+        textarea {
+            width: 100%;
+            margin-top: 8px;
+            padding: 10px;
+            background: #0b0b0b;
+            border: 1px solid #1f1f1f;
+            color: #fff;
+            border-radius: 6px;
+            resize: none;
+        }
+
+        select {
+            width: 100%;
+            margin-top: 8px;
+            padding: 10px;
+            background: #0b0b0b;
+            border: 1px solid #1f1f1f;
+            color: #fff;
+            border-radius: 6px;
+        }
+
+        button {
+            width: 100%;
+            margin-top: 25px;
+            padding: 12px;
+            background: #0f3d2e;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background: #145c44;
+        }
+
+        .status {
+            margin-top: 15px;
+            text-align: center;
+            font-size: 0.85rem;
+            color: #9c9c9c;
+        }
+    </style>
+</head>
+<body>
+
+<div class="panel">
+    <h1>Painel de Manutenção</h1>
+
+    <label>Mensagem da manutenção</label>
+    <textarea id="message" rows="4" placeholder="Site temporariamente indisponível."></textarea>
+
+    <label>Status</label>
+    <select id="enabled">
+        <option value="false">Desativado</option>
+        <option value="true">Ativado</option>
+    </select>
+
+    <button onclick="saveMaintenance()">Salvar</button>
+
+    <div class="status" id="statusText"></div>
+</div>
+
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+import { getDatabase, ref, set } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyAI1hMvXCLtbpdeHhm5Sv8nn7nTZnRi-84",
+  authDomain: "gws-site-ofc.firebaseapp.com",
+  databaseURL: "https://gws-site-ofc-default-rtdb.firebaseio.com",
+  projectId: "gws-site-ofc",
+  storageBucket: "gws-site-ofc.firebasestorage.app",
+  messagingSenderId: "527110934564",
+  appId: "1:527110934564:web:0f9ed3947f3c01eea008b1"
+};
+
+const app = initializeApp(firebaseConfig);
+const database = getDatabase(app);
+
+window.saveMaintenance = function () {
+    const message = document.getElementById("message").value;
+    const enabled = document.getElementById("enabled").value === "true";
+
+    set(ref(database, "site/maintenance"), {
+        enabled: enabled,
+        message: message
+    }).then(() => {
+        document.getElementById("statusText").innerText =
+            "Configuração salva com sucesso.";
+    }).catch(err => {
+        document.getElementById("statusText").innerText =
+            "Erro ao salvar.";
+        console.error(err);
+    });
+};
+</script>
+
+</body>
+</html>
