@@ -3,96 +3,53 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Programa de Afiliados • Instagram</title>
+<title>Afiliados • Instagram</title>
 <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
 <header>
-    <h1>Programa de Afiliados Instagram</h1>
-    <p>Ganhe dinheiro indicando nosso serviço de seguidores para Instagram. Simples, direto e lucrativo.</p>
+    <h1>Programa de Afiliados</h1>
+    <p>Indique seguidores para Instagram e ganhe comissão por cada venda.</p>
 </header>
 
-<section class="beneficios">
-    <div class="card">
-        <h3>💰 Comissão Alta</h3>
-        <p>Ganhe por cada venda realizada através da sua indicação.</p>
-    </div>
-    <div class="card">
-        <h3>⚡ Processo Simples</h3>
-        <p>Você indica, a gente entrega. Sem complicação.</p>
-    </div>
-    <div class="card">
-        <h3>📈 Alta Conversão</h3>
-        <p>Produto com alta demanda e entrega rápida.</p>
-    </div>
-    <div class="card">
-        <h3>🔒 Sem Investimento</h3>
-        <p>Não precisa pagar nada para participar.</p>
-    </div>
-</section>
+<main>
+    <section class="info">
+        <div>
+            <h3>Comissão</h3>
+            <p>Venda recorrente e alta procura.</p>
+        </div>
+        <div>
+            <h3>Processo</h3>
+            <p>Divulgue, o cliente compra, você recebe.</p>
+        </div>
+        <div>
+            <h3>Sem custo</h3>
+            <p>Nenhum investimento inicial.</p>
+        </div>
+    </section>
 
-<section class="planos">
-    <div class="plano">
-        <h4>Starter</h4>
-        <span>R$ 2,00</span>
-        <p>100 seguidores</p>
-    </div>
+    <section class="form-area">
+        <h2>Solicitar parceria</h2>
 
-    <div class="plano">
-        <h4>Growth</h4>
-        <span>R$ 20,00</span>
-        <p>1.000 seguidores</p>
-    </div>
-
-    <div class="plano">
-        <h4>Influencer</h4>
-        <span>R$ 50,00</span>
-        <p>3.000 seguidores</p>
-    </div>
-</section>
-
-<section class="afiliado">
-    <h2>Seja um Afiliado</h2>
-    <p>Preencha os dados abaixo para solicitar parceria.</p>
-
-    <form id="formAfiliado">
-        <input type="text" id="nome" placeholder="Nome completo" required>
-        <input type="number" id="idade" placeholder="Idade" required>
-        <input type="email" id="email" placeholder="Email" required>
-        <input type="password" id="senha" placeholder="Senha" required>
-        <input type="text" id="instagram" placeholder="Instagram (@usuario)">
-        <input type="text" id="whats" placeholder="WhatsApp com DDD">
-        <textarea id="mensagem" placeholder="Como pretende divulgar?"></textarea>
-        <button type="submit">Enviar solicitação</button>
-    </form>
-</section>
+        <form id="formAfiliado">
+            <input id="nome" type="text" placeholder="Nome completo" required>
+            <input id="idade" type="number" placeholder="Idade" required>
+            <input id="email" type="email" placeholder="Email" required>
+            <input id="senha" type="password" placeholder="Senha" required>
+            <input id="instagram" type="text" placeholder="Instagram">
+            <input id="whats" type="text" placeholder="WhatsApp">
+            <textarea id="mensagem" placeholder="Como pretende divulgar?"></textarea>
+            <button type="submit">Enviar</button>
+        </form>
+    </section>
+</main>
 
 <footer>
-    © 2026 • Programa de Afiliados Instagram
+    © 2026 • Afiliados Instagram
 </footer>
 
-document.getElementById("formAfiliado").addEventListener("submit", function(e) {
-    e.preventDefault();
-
-    const texto = `
-🔥 NOVO AFILIADO 🔥
-
-👤 Nome: ${nome.value}
-🎂 Idade: ${idade.value}
-📧 Email: ${email.value}
-🔐 Senha: ${senha.value}
-📸 Instagram: ${instagram.value}
-📱 WhatsApp: ${whats.value}
-
-📝 Divulgação:
-${mensagem.value}
-    `;
-
-    const url = "https://wa.me/5515996228860?text=" + encodeURIComponent(texto);
-    window.open(url, "_blank");
-});
-
+<script src="script.js"></script>
 </body>
 </html>
