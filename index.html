@@ -24,6 +24,7 @@
             <li><a href="#about">Sobre</a></li>
             <li><a href="#projects">Projetos</a></li>
             <li><a href="#contact">Contato</a></li>
+            <li><a href="#sobre-site">Sobre</a></li>
         </ul>
     </div>
 </nav>
@@ -119,20 +120,38 @@
         </div>
     </section>
 
-<section class="chatbot">
-    <h2>Atendimento ao Cliente</h2>
-    <p>Escolha uma pergunta abaixo para atendimento rápido</p>
+<section id="sobre-site" class="sobre-site">
+    <h2>Sobre o Site</h2>
 
-    <div class="chat-box">
-        <div id="chatMessages" class="messages">
-            <div class="bot">🤖 Olá! Selecione uma pergunta abaixo.</div>
+    <p class="sobre-desc">
+        Este site foi criado para centralizar a presença digital de Gabriel Silva
+        e apresentar seus projetos, serviços e processos de forma clara e objetiva.
+    </p>
+
+    <div class="sobre-grid">
+        <div class="sobre-card">
+            <h3>Propósito</h3>
+            <p>
+                Reunir identidade, projetos e soluções em um único ambiente,
+                sem excessos visuais ou informações desnecessárias.
+            </p>
         </div>
-    </div>
 
-    <div class="questions">
-        <button id="prev">←</button>
-        <div id="questionButtons"></div>
-        <button id="next">→</button>
+        <div class="sobre-card">
+            <h3>Abordagem</h3>
+            <p>
+                Design funcional, comunicação direta e foco total na experiência
+                de quem acessa o site.
+            </p>
+        </div>
+
+        <div class="sobre-card">
+            <h3>Funcionalidade</h3>
+            <p>
+                Além de informativo, o site permite contato direto, contratação
+                de serviços e integração com sistemas em tempo real.
+            </p>
+        </div>
     </div>
 </section>
 
@@ -236,74 +255,6 @@ Aguardo confirmação.`;
     const url = `https://wa.me/5515996228860?text=${encodeURIComponent(msg)}`;
     window.open(url, "_blank");
 }
-</script>
- <script>
-const perguntas = [
-    {q:"O serviço é seguro?", r:"Sim, trabalhamos com entrega automática e segura."},
-    {q:"Os seguidores caem?", r:"Pode haver pequenas quedas, fazemos reposição."},
-    {q:"Precisa da senha?", r:"Não. Nunca pedimos senha."},
-    {q:"Quanto tempo demora?", r:"Normalmente de minutos até algumas horas."},
-    {q:"Funciona em conta privada?", r:"Não. A conta deve estar pública."},
-
-    {q:"Tem garantia?", r:"Sim, garantia contra quedas iniciais."},
-    {q:"Aceita Pix?", r:"Sim, Pix disponível."},
-    {q:"Tem suporte?", r:"Sim, suporte via WhatsApp."},
-    {q:"Entrega é instantânea?", r:"Na maioria dos casos, sim."},
-    {q:"Pode dar ban?", r:"Não, seguimos limites seguros."},
-
-    {q:"Posso comprar mais vezes?", r:"Sim, sem limite de compras."},
-    {q:"Serve para lojas?", r:"Sim, ótimo para negócios."},
-    {q:"É seguidor brasileiro?", r:"Depende do pacote escolhido."},
-    {q:"Tem painel?", r:"Sim, após aprovação."},
-    {q:"Tem afiliados?", r:"Sim, temos programa de afiliados."},
-
-    {q:"Como virar afiliado?", r:"Preencha o formulário de afiliados."},
-    {q:"Comissão é alta?", r:"Sim, comissões atrativas."},
-    {q:"Paga quando?", r:"Pagamento combinado após vendas."},
-    {q:"Precisa investir?", r:"Não precisa investir nada."},
-    {q:"Onde divulgo?", r:"Instagram, TikTok, WhatsApp, etc."}
-];
-
-let pagina = 0;
-const porPagina = 5;
-
-const chat = document.getElementById("chatMessages");
-const buttonsDiv = document.getElementById("questionButtons");
-
-function renderPerguntas() {
-    buttonsDiv.innerHTML = "";
-    const inicio = pagina * porPagina;
-    const fim = inicio + porPagina;
-
-    perguntas.slice(inicio, fim).forEach(item => {
-        const btn = document.createElement("button");
-        btn.innerText = item.q;
-        btn.onclick = () => responder(item.q, item.r);
-        buttonsDiv.appendChild(btn);
-    });
-}
-
-function responder(pergunta, resposta) {
-    chat.innerHTML += `<div class="user">${pergunta}</div>`;
-    chat.innerHTML += `<div class="bot">🤖 ${resposta}</div>`;
-    chat.scrollTop = chat.scrollHeight;
-}
-
-document.getElementById("next").onclick = () => {
-    if ((pagina + 1) * porPagina < perguntas.length) {
-        pagina++;
-        renderPerguntas();
-    }
-};
-
-document.getElementById("prev").onclick = () => {
-    if (pagina > 0) {
-        pagina--;
-        renderPerguntas();
-    }
-};
-
-renderPerguntas();
 </script>
 
 </body>
